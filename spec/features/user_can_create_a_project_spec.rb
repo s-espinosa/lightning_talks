@@ -8,7 +8,7 @@ describe 'When a user visits the new project path' do
     visit new_project_path
     fill_in "project[group_members]", with: "Sharon Jones"
     fill_in "project[name]", with: "Witty Name"
-    select "M2", from: "project[type]"
+    select "BE Mod 3", from: "project[project_type]"
     check "project[final_confirmation]"
     click_on "Submit"
 
