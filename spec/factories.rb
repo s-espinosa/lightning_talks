@@ -9,4 +9,11 @@ FactoryGirl.define do
     nickname "nick"
     github "https://github.com/nick"
   end
+
+  factory :project do
+    group_members "Sharon Jones"
+    name "Witty Name"
+    project_type "BE Mod 3"
+    final_confirmation true
+  end
 end
