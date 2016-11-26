@@ -1,1 +1,8 @@
 <h1>Vote for <%= @project.name %></h1>
+
+<%= form_for([:project, @vote]) do |f| %>
+  <%= select_tag "vote[representation]", options_for_select([1, 2, 3, 4, 5], 3) %>
+  <%= select_tag "vote[challenge]", options_for_select([1, 2, 3, 4, 5], 3) %>
+  <%= select_tag "vote[wow]", options_for_select([1, 2, 3, 4, 5], 3) %>
+  <%= f.submit "Submit" %>
+<% end %>
