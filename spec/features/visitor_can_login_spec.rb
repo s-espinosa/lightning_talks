@@ -10,6 +10,7 @@ describe "When a visitor tries to log in" do
       expect(current_path).to eq('/')
       expect(page).to have_content('Sign Up')
       expect(page).to have_content('Vote')
+      expect(User.last.name).to eq("First Last")
     end
   end
 end

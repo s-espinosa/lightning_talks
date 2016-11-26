@@ -27,8 +27,16 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-  :provider => 'twitter',
-  :uid => '123545'
+  provider: 'github',
+  uid: '123456',
+  info: {
+    name: "First Last",
+    email: "first@last.com",
+    nickname: "nick",
+    urls: {
+      GitHub: "https://github.com/nick"
+    }
+  }
 })
 
 RSpec.configure do |config|
