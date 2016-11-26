@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#show'
   resources :projects, only: [:new, :create, :index, :show] do
-    resources :votes, only: [:new]
+    resources :votes, only: [:new, :create]
   end
 
   get '/login', to: 'sessions#new'
