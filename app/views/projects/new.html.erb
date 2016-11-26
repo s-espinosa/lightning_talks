@@ -1,3 +1,11 @@
 <h1>Create a New Project to Demo</h1>
 
+<%= form_for(@project) do |f| %>
+  <%= f.text_field :group_members, placeholder: "Group Members" %>
+  <%= f.text_field :name, placeholder: "Project Name" %>
+  <%= select_tag "project[project_type]", options_for_select(@modules, @modules.first) %>
+  <%= f.check_box :final_confirmation %>
+
+  <%= f.submit "Submit" %>
+<% end %>
 
