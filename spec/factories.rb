@@ -8,6 +8,10 @@ FactoryGirl.define do
     email "first@last.com"
     nickname "nick"
     github "https://github.com/nick"
+
+    factory :admin do
+      role 1
+    end
   end
 
   factory :project do
