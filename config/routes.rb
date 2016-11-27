@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     resources :votes, only: [:new, :create]
   end
 
+  namespace :admin do
+    get '/dashboard', to: 'dashboard#show'
+  end
+
   get '/login', to: 'sessions#new'
   get "/auth/:provider/callback", to: "sessions#create"
 end
