@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :votes
+  has_many :projects, through: :votes
 
   def self.create_with_omniauth(auth)
     create! do |user|
