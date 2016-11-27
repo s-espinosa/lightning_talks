@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :votes
   has_many :projects, through: :votes
 
+  enum role: [:default, :admin]
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
