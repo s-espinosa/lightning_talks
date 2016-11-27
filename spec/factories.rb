@@ -16,7 +16,9 @@ FactoryGirl.define do
 
   factory :project do
     group_members "Sharon Jones"
-    name "Witty Name"
+    sequence :name do |n|
+      "Witty Name #{n}"
+    end
     project_type "BE Mod 3"
     final_confirmation true
   end
