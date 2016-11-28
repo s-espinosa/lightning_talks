@@ -1,6 +1,6 @@
 class Admin::DashboardController < Admin::BaseController
 
   def show
-    @projects = Project.all
+    @demo_night = DemoNight.current
   end
 end

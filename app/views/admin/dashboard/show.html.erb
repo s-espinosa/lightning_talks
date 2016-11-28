@@ -2,23 +2,10 @@
 
 <%= link_to "Current Projects", admin_projects_path %>
 
-<table>
-  <tr>
-    <th>Project Name</th>
-    <th>Group Members</th>
-    <th>Representation</th>
-    <th>Challenge</th>
-    <th>Wow</th>
-    <th>Total Score</th>
-  </tr>
-  <% @projects.each do |project| %>
-    <tr>
-      <td><%= project.name %></td>
-      <td><%= project.group_members %></td>
-      <td><%= project.average_representation %></td>
-      <td><%= project.average_challenge %></td>
-      <td><%= project.average_wow %></td>
-      <td><%= project.average_total %></td>
-    </tr>
-  <% end %>
-</table>
+<% if @demo_night == nil %>
+  <p>No current demo night available.</p>
+<% elsif @demo_night.votes.length > 0 %>
+  <%= render partial: 'vote_talley', locals: {projects: @demo_night.projects} %>
+<% else %>
+  <p>No votes yet.</p>
+<% end %>
