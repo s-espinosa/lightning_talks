@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-describe "When an admin visits the admin projects path" do
+describe "When an admin visits the admin dashboard path" do
   it "they see a list of projects" do
     user  = create(:user)
     admin = create(:admin, uid: 123456)
-    project1, project2 = create_list(:project, 2)
+    demo_night = create(:demo_night_with_projects)
+    project1, project2 = demo_night.projects
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     project1.votes.create(user: user, representation: 5, challenge: 5, wow: 5)
     project1.votes.create(user: user, representation: 3, challenge: 3, wow: 3)
