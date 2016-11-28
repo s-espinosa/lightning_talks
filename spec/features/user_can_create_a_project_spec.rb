@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'When a user visits the new project path' do
   it 'they can create a new project' do
+    create(:demo_night)
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
