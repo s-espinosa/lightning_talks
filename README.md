@@ -1,24 +1,16 @@
-# README
+# DEMO NIGHT!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Voting app for competitions. 
 
-Things you may want to cover:
+I am writing Sal's Readme because he hasn't written it, but still wants help. Yup. I'm calling you out in your own readme.
 
-* Ruby version
+```
+fork, clone & cd into the project
+bundle
+gem install figaro
+bundle exec figaro install
+```
 
-* System dependencies
+Open the project up in your favorite editor and add a `GITHUB_KEY` and `GITHUB_SECRET` for Github Oauth.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Sal probably won't merge this PR, but he'll update the readme soon based on this PR.
