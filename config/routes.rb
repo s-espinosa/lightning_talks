@@ -4,8 +4,10 @@ Rails.application.routes.draw do
     resources :votes, only: [:new, :create]
   end
 
+
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
+    resources :demo_nights, only: [:new, :create]
     resources :projects, only: [:index, :edit]
   end
 
