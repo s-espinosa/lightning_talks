@@ -1,0 +1,13 @@
+<div class="projects">
+  <% if @demo_night.projects.count == 0 %>
+    No Projects Yet!
+  <% else %>
+    <% @demo_night.projects.each do |project| %>
+      <%= project.name %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="admin-tools">
+  <%= link_to "Activate Demo Night!" ,"#" %>
+</div>
