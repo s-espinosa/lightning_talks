@@ -1,3 +1,5 @@
-<%= form_for @demo_night do |f| %>
+<%= form_for @demo_night, url: admin_demo_nights_path do |f| %>
+  <%= f.label :name, "Name" %>
   <%= f.text_field :name %>
+  <%= f.submit "Create Demo Night!" %>
 <% end %>
