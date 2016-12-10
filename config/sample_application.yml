@@ -1,0 +1,11 @@
+# Add configuration values here, as shown below.
+#
+# Use `figaro heroku:set -e production` to set keys in the Heroku production environment.
+
+development:
+  GITHUB_KEY: "your-dev-github-Client-ID"
+  GITHUB_SECRET: "your-dev-github-Client-Secret"
+
+production:
+  GITHUB_KEY: "your-production-github-Client-ID"
+  GITHUB_SECRET: "your-production-github-Client-Secret"
