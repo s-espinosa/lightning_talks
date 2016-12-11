@@ -1,0 +1,15 @@
+// application.html.erb start
+.main-container {
+  padding-top: 100px;
+}
+// application.html.erb end
+
+// sessions/new.html.erb start
+.login {
+  background-color: #EEE;
+
+  & > a {
+    margin-bottom: 50px;
+  }
+}
+// sessions/new.html.erb end
