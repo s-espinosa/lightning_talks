@@ -2,9 +2,8 @@ class Admin::DemoNightsController < Admin::BaseController
 
   def new
     @demo_night = DemoNight.new
-
   end
-  
+
   def show
     @demo_night = DemoNight.find(params[:id])
   end
