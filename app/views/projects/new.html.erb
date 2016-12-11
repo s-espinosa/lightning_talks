@@ -1,11 +1,33 @@
-<h1>Create a New Project to Demo</h1>
+<div class="row">
+  <div class="col s6 offset-s2">
+    <h1>Create a New Project to Demo</h1>
+    <%= form_for @project do |f| %>
+    <div class="input-field col s12">
+      <%= f.text_field :name, class: "validate" %>
+      <%= f.label :name %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.text_field :group_members, class: "validate" %>
+      <%= f.label :group_members %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.select(:project_type, @modules) %>
+      <%= f.label :project_type %>
+    </div>
+    <div class="input-field col s12 checkbox">
+      <%= f.check_box :final_confirmation, {}, "true", "false" %>
+      <%= f.label :final_confirmation, 'Are you able to present at the Demo Night Finals?' %>
+    </div>
 
-<%= form_for(@project) do |f| %>
-  <%= f.text_field :group_members, placeholder: "Group Members" %>
-  <%= f.text_field :name, placeholder: "Project Name" %>
-  <%= select_tag "project[project_type]", options_for_select(@modules, @modules.first) %>
-  <%= f.check_box :final_confirmation %>
+    <div class="input-field col s12">
+      <%= f.submit "Submit", class: "btn waves-effect waves-light" %>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-  <%= f.submit "Submit" %>
-<% end %>
-
+<script>
+$(document).ready(function() {
+  $('select').material_select();
+});
+</script>

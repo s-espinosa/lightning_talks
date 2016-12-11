@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = DemoNight.current.projects.new(project_params)
+    @project = Project.new(project_params)
     if @project.save
       flash[:success] = "Project successfully submitted!"
       redirect_to project_path(@project)
