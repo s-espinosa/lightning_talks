@@ -28,7 +28,7 @@ FactoryGirl.define do
     sequence :name do |n|
       "DemoName#{n}"
     end
-    active true
+    status 0
 
     factory :demo_night_with_projects do
       after(:create) do |demo_night, evaluator|

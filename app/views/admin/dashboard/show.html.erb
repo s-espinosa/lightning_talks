@@ -3,7 +3,7 @@
 <%= link_to "Create New Demo Night", new_admin_demo_night_path %>
 <%= link_to "Current Projects", admin_projects_path %>
 
-<% if @demo_night == nil %>
+<% if @demo_night.nil? %>
   <p>No current demo night available.</p>
 <% elsif @demo_night.votes.length > 0 %>
   <%= render partial: 'vote_talley', locals: {projects: @demo_night.projects} %>
