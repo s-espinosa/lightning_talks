@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#show'
+  get '/no-demo-night', to: 'home#no_demo_night', as: 'no_demo_night'
   resources :projects, only: [:new, :create, :index, :show] do
     resources :votes, only: [:new, :create]
   end
