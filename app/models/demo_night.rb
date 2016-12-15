@@ -8,6 +8,10 @@ class DemoNight < ApplicationRecord
     where.not(status: "closed").first
   end
 
+  def self.currents
+    where.not(status: "closed")
+  end
+
   def active?
     status != "closed"
   end
