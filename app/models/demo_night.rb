@@ -12,6 +12,10 @@ class DemoNight < ApplicationRecord
     where.not(status: "closed")
   end
 
+  def self.inactives
+    where(status: "closed")
+  end
+
   def active?
     status != "closed"
   end

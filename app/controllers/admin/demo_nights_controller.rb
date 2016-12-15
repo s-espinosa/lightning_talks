@@ -2,9 +2,7 @@ class Admin::DemoNightsController < Admin::BaseController
   before_action :check_active_demo_nights, only: :create
 
   def index
-    demo_nights = DemoNight.all
-    @inactives = demo_nights.where(status: "closed")
-    @currents = demo_nights.where.not(status: "closed")
+    @demo_nights = DemoNight.all
   end
 
   def new
@@ -31,7 +29,7 @@ class Admin::DemoNightsController < Admin::BaseController
   end
 
   def check_active_demo_nights
-    if !DemoNight.pluck(:status).all? { |status| status == "closed" }
+    if DemoNight.all.currents.any?
       flash[:danger] = "There can only be 1 active demo night at a time."
       redirect_to admin_demo_nights_path
     end
