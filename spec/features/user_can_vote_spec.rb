@@ -6,6 +6,7 @@ describe "When a user visits a project vote page" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
+    save_and_open_page
     visit new_project_vote_path(project)
     select "3", from: "vote[representation]"
     select "3", from: "vote[challenge]"
