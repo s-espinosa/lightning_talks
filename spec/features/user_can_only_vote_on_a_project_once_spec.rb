@@ -7,8 +7,9 @@ describe "When a user votes on a project" do
 
     # As a user
     user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     # When I visit /demo_night/:id/projects
-    visit "/demo_night/#{demo_night.id}/projects"
+    visit "/demo_nights/#{demo_night.id}/projects"
     # I am presented with a list of projects
     within ('.unvoted') do
       expect(page).to have_content(project1.name)
