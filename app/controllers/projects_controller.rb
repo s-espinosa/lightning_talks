@@ -28,7 +28,6 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = DemoNight.current.projects
-    # @projects = Project.where.not(id: current_user.projects)
   end
 
   private
