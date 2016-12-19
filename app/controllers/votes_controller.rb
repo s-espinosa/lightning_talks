@@ -6,6 +6,7 @@ class VotesController < ApplicationController
   end
 
   def create
+    binding.pry
     @project = Project.find(params[:project_id])
     @vote    = @project.votes.new(vote_params)
     @vote.user = current_user
