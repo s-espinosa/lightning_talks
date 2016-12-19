@@ -9,6 +9,8 @@ describe 'When a user visits the project index' do
 
     visit projects_path
 
-    expect(page).to_not have_content(project.name)
+    within('.unvoted') do
+      expect(page).to_not have_content(project.name)
+    end
   end
 end

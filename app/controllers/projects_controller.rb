@@ -27,7 +27,8 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.where.not(id: current_user.projects)
+    @projects = DemoNight.current.projects
+    # @projects = Project.where.not(id: current_user.projects)
   end
 
   private

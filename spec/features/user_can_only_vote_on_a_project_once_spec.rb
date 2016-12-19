@@ -25,10 +25,14 @@ describe "When a user votes on a project" do
     # and I click on submit
     click_button("Submit")
     # I am returned to /demo_night/:id/projects
-    expect(current_path).to eq("/demo_night/#{demo_night.id}/projects")
+    expect(current_path).to eq("/demo_nights/#{demo_night.id}/projects")
     # And the project name of the project that I just voted on is no longer shown.
     within ('.unvoted') do
-      expect(page).to_not have_content(project1.name)
+      expect(page).to_not have_link(project1.name)
+    end
+
+    within ('.voted') do
+      expect(page).to have_content(project1.name)
     end
   end
 end

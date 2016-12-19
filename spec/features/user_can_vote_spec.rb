@@ -13,7 +13,7 @@ describe "When a user visits a project vote page" do
 
     click_on "Submit"
 
-    expect(current_path).to eq(projects_path)
+    expect(current_path).to eq(demo_night_projects_path(project.demo_night_id))
     expect(Vote.last.wow).to eq(3)
     expect(Vote.last.user).to eq(user)
   end

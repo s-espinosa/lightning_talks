@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :demo_nights, only: [:show] do
-    scope module: :demo_nights do
-      resources :projects, only: [:index]
-    end
+    resources :projects, only: [:index]
   end
 
   namespace :admin do
