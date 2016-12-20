@@ -21,16 +21,16 @@ describe "When an admin visits the admin dashboard path" do
         expect(page).to have_content(project1.group_members)
       end
       within(":nth-child(3)") do
-        expect(page).to have_content("4")
+        expect(page).to have_content("5.0")
       end
       within(":nth-child(4)") do
-        expect(page).to have_content("4")
+        expect(page).to have_content("5.0")
       end
       within(":nth-child(5)") do
-        expect(page).to have_content("4")
+        expect(page).to have_content("5.0")
       end
       within(":nth-child(6)") do
-        expect(page).to have_content("12")
+        expect(page).to have_content("15")
       end
     end
     within("tr:nth-of-type(3)") do
