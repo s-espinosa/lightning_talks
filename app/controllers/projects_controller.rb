@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   def new
     if DemoNight.current
-      @project = DemoNight.current.projects.new
+      @project = Project.new
       @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4", "Posse"]
     else
       flash[:error] = "There is no active demo night, please ask Sal to make one"
