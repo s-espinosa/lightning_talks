@@ -22,6 +22,7 @@ FactoryGirl.define do
     project_type "BE Mod 3"
     final_confirmation true
     demo_night
+    user
   end
 
   factory :demo_night do

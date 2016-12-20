@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  has_many :submitted_projects, class_name: "Project",
+                                foreign_key: "user_id"
   has_many :votes
-  has_many :projects, through: :votes
+  has_many :voted_projects, through: :votes, source: :user
 
   enum role: [:default, :admin]
 
