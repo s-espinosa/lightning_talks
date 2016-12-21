@@ -36,5 +36,7 @@ FactoryGirl.define do
         create_list(:project, 2, demo_night: demo_night)
       end
     end
+
   end
+
 end
