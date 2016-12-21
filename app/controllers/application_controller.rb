@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   end
 
   def owner_and_accepting(project_id)
-    DemoNight.current.status == "accepting_submissions" && Project.find(project_id).user_id == current_user.id
+    project = Project.find(project_id)
+    current_dn = DemoNight.current
+    current_dn.status == "accepting_submissions" && project.demo_night_id == current_dn.id && project.user_id == current_user.id
   end
 end
