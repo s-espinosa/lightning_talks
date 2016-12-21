@@ -1,15 +1,40 @@
+$turing-blue: #05C2D1;
+// general stuff start
+body {
+  background-color: #000;
+  color: #FFF;
+}
+
+@media screen
+and (min-width: 1024px) {
+  body {
+    background-color: #FFF;
+    color: #000;
+  }
+}
+a.turing-btn {
+  background-color: $turing-blue
+}
+// general stuff end
 // application.html.erb start
 .main-container {
-  padding-top: 100px;
+  padding-top: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 // application.html.erb end
 
 // sessions/new.html.erb start
 .login {
   background-color: #EEE;
-
   & > a {
     margin-bottom: 50px;
   }
 }
 // sessions/new.html.erb end
+
+// navbar start
+.nav-wrapper {
+  background-color: $turing-blue;
+}
+// navbar end
