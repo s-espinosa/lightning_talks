@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authorize_user
   helper_method :current_user
+  helper_method :owner_and_accepting
 
   private
   def current_user
@@ -11,5 +12,9 @@ class ApplicationController < ActionController::Base
 
   def authorize_user
     redirect_to login_path unless current_user
+  end
+
+  def owner_and_accepting(project_id)
+    DemoNight.current.status == "accepting_submissions" && Project.find(project_id).user_id == current_user.id
   end
 end
