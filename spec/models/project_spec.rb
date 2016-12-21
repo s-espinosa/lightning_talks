@@ -1,5 +1,8 @@
 require "rails_helper"
 
 describe Project do
-  it { have_many :votes }
+  it { should have_many :votes }
+  it { should have_many(:voters).through(:votes) }
+  it { should belong_to(:demo_night) }
+  it { should belong_to(:owner) }
 end

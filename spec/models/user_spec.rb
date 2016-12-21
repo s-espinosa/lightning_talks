@@ -3,7 +3,7 @@ require "rails_helper"
 describe User do
   it "should have submitted projects" do
     user = create(:user)
-    project = create(:project, user: user)
+    project = create(:project, owner: user)
     expect(user.submitted_projects).to eq([project])
   end
 
