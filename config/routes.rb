@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#show'
-  resources :projects, only: [:new, :create, :index, :show] do
+  resources :projects, only: [:new, :create, :index, :show, :edit, :update] do
     resources :votes, only: [:new, :create]
   end
 

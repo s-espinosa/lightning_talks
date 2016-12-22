@@ -30,13 +30,12 @@ FactoryGirl.define do
       "DemoName#{n}"
     end
     status 0
-    
+
     factory :demo_night_with_projects do
       after(:create) do |demo_night, evaluator|
         create_list(:project, 2, demo_night: demo_night)
       end
     end
-
   end
 
 end
