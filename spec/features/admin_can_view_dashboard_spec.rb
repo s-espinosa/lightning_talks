@@ -12,28 +12,27 @@ describe "When an admin visits the admin dashboard path" do
     project2.votes.create(user: user, representation: 2, challenge: 2, wow: 2)
 
     visit admin_dashboard_path
-
     within("tr:nth-of-type(2)") do
       within(":nth-child(1)") do
-        expect(page).to have_content(project1.name)
+        expect(page).to have_content(project2.name)
       end
       within(":nth-child(2)") do
-        expect(page).to have_content(project1.group_members)
+        expect(page).to have_content(project2.group_members)
       end
       within(":nth-child(3)") do
-        expect(page).to have_content("5.0")
+        expect(page).to have_content("2.0")
       end
       within(":nth-child(4)") do
-        expect(page).to have_content("5.0")
+        expect(page).to have_content("2.0")
       end
       within(":nth-child(5)") do
-        expect(page).to have_content("5.0")
+        expect(page).to have_content("2.0")
       end
       within(":nth-child(6)") do
-        expect(page).to have_content("15")
+        expect(page).to have_content("6")
       end
     end
-    within("tr:nth-of-type(3)") do
+    within("tr:nth-of-type(2)") do
       expect(page).to have_content(project2.name)
     end
   end
