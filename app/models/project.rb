@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   has_many :votes
-  has_many :users, through: :votes
+  has_many :voters, through: :votes, source: :user
+
+  belongs_to :owner, class_name: "User", foreign_key: 'user_id'
   belongs_to :demo_night
 
   def average_representation

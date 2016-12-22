@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :user, aliases: [:owner] do
     provider "github"
     sequence :uid do |n|
       "12345#{n}"
@@ -22,6 +22,7 @@ FactoryGirl.define do
     project_type "BE Mod 3"
     final_confirmation true
     demo_night
+    owner
   end
 
   factory :demo_night do
@@ -29,11 +30,13 @@ FactoryGirl.define do
       "DemoName#{n}"
     end
     status 0
-
+    
     factory :demo_night_with_projects do
       after(:create) do |demo_night, evaluator|
         create_list(:project, 2, demo_night: demo_night)
       end
     end
+
   end
+
 end
