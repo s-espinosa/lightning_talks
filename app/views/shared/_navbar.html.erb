@@ -1,17 +1,29 @@
-<div class="nav-wrapper">
-  <a href="#!" class="brand-logo">DEMONS!</a>
-  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-  <ul class="right hide-on-med-and-down">
-    <li><a href="#">Sass</a></li>
-    <li><a href="#">Components</a></li>
-    <li><a href="#">Javascript</a></li>
-    <li><a href="#">Mobile</a></li>
-  </ul>
-  <ul class="side-nav" id="mobile-demo">
-    <li><a href="#">Sass</a></li>
-    <li><a href="#">Components</a></li>
-    <li><a href="#">Javascript</a></li>
-    <li><a href="#">Mobile</a></li>
-  </ul>
-</div>
+<nav>
+  <div class="nav-wrapper">
+    <div class="container">
+      <a href="/" class="brand-logo">DEMONS!</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <% if current_admin? %>
+          <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% end %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><%= link_to "Regular DashBoard", root_path %></li>
+        <% if current_admin? %>
+          <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </nav>

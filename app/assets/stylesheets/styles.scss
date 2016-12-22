@@ -1,32 +1,35 @@
 $turing-blue: #05C2D1;
 // general stuff start
 body {
-  background-color: #000;
-  color: #FFF;
+  background-color: #FFF;
+  color: #000;
 }
 
 @media screen
 and (min-width: 1024px) {
-  body {
-    background-color: #FFF;
-    color: #000;
-  }
+
 }
-a.turing-btn {
-  background-color: $turing-blue
+
+a.turing-btn, a.turing-btn:hover, a.turing-btn:active, i.turing-btn, i.turing-btn:hover, i.turing-btn:active {
+  background-color: $turing-blue;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
+
 // general stuff end
 // application.html.erb start
 .main-container {
-  padding-top: 0px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 // application.html.erb end
 
 // sessions/new.html.erb start
 .login {
+  margin-top: 25px;
   background-color: #EEE;
+  color: #000;
   & > a {
     margin-bottom: 50px;
   }

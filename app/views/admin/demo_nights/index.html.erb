@@ -1,5 +1,15 @@
 <div class="active-demo-night">
+  <h1>Demo Nights</h1>
   <% @demo_nights.currents.each do |dn| %>
-    <%= dn.name %>
+    <%= "#{dn.name} | #{dn.status}" %>
+    <% if dn.status != "accepting_submissions" %>
+      <%= link_to "switch to accepting submissions", "#", class: "waves-effect waves-light btn turing-btn" %>
+    <% end %>
+    <% if dn.status != "voting" %>
+      <%= link_to "switch to voting", "#", class: "waves-effect waves-light btn turing-btn" %>
+    <% end %>
+    <% if dn.status != "closed" %>
+      <%= link_to "switch to closed", "#", class: "waves-effect waves-light btn turing-btn" %>
+    <% end %>
   <% end %>
 </div>
