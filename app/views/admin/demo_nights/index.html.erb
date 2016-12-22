@@ -1,5 +1,5 @@
 <div class="active-demo-night">
   <% @demo_nights.currents.each do |dn| %>
-    <%= dn.name %>
+    <%= link_to dn.name, admin_demo_night_path(dn) %>
   <% end %>
 </div>

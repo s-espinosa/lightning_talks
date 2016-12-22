@@ -22,10 +22,21 @@ class Admin::DemoNightsController < Admin::BaseController
     end
   end
 
+  def update
+    dn = DemoNight.find(params[:id])
+    if dn.update(demo_night_params!)
+      flash[:success] = "#{dn.name} now #{dn.status.humanize.downcase}"
+      redirect_to admin_demo_night_path(dn)
+    else
+      flash[:failure] = "Something went wrong"
+      redirect_to admin_demo_night_path(dn)
+    end
+  end
+
   private
 
   def demo_night_params!
-    params.require(:demo_night).permit(:name, :active)
+    params.require(:demo_night).permit(:name, :status)
   end
 
   def check_active_demo_nights

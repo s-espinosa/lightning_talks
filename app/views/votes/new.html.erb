@@ -1,8 +1,11 @@
 <h1>Vote for <%= @project.name %></h1>
 
 <%= form_for([:project, @vote]) do |f| %>
+  <%= label_tag "Does this project represent the student community?" %><br>
   <%= select_tag "vote[representation]", options_for_select([1, 2, 3, 4, 5], 3) %>
+  <%= label_tag "Does this project demonstrate technical excellence (e.g. good practices evident, well tested, technically challenging)?" %><br>
   <%= select_tag "vote[challenge]", options_for_select([1, 2, 3, 4, 5], 3) %>
+  <%= label_tag "Is this project/presentation compelling (e.g. solves a real problem, has a great story, has a wow factor)?" %><br>
   <%= select_tag "vote[wow]", options_for_select([1, 2, 3, 4, 5], 3) %>
   <%= f.submit "Submit" %>
 <% end %>
