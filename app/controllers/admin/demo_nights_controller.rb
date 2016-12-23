@@ -26,7 +26,7 @@ class Admin::DemoNightsController < Admin::BaseController
     dn = DemoNight.find(params[:id])
     if dn.update(demo_night_params!)
       flash[:success] = "#{dn.name} now #{dn.status.humanize.downcase}"
-      redirect_to admin_demo_night_path(dn)
+      redirect_to admin_demo_nights_path
     else
       flash[:failure] = "Something went wrong"
       redirect_to admin_demo_night_path(dn)

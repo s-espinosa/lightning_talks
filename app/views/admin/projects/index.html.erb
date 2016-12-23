@@ -1,5 +1,9 @@
 <h1>Current Projects</h1>
 
-<% @projects.each do |project| %>
-  <p><%= link_to project.name, edit_admin_project_path(project) %></p>
+<% if @projects.current_projects == [] %>
+  <p>No current projects.</p>
+<% else %>
+  <% @projects.current_projects.each do |project| %>
+    <p><%= link_to project.name, edit_admin_project_path(project) %></p>
+  <% end %>
 <% end %>

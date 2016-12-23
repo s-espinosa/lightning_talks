@@ -1,3 +1,5 @@
+<h1><%= @demo_night.name %></h1>
+
 <div class="admin-tools">
   <% if @demo_night.accepting_submissions? %>
     <%= link_to "Open voting!", admin_demo_night_path(@demo_night, demo_night: {status: :voting}), method: :patch %>
@@ -13,7 +15,7 @@
     No Projects Yet!
   <% else %>
     <% @demo_night.projects.each do |project| %>
-      <%= project.name %>
+      <%= link_to project.name, admin_project_path(project) %><br>
     <% end %>
   <% end %>
 </div>
