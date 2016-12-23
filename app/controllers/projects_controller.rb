@@ -3,16 +3,15 @@ class ProjectsController < ApplicationController
   def new
     if DemoNight.current
       @project = Project.new
-      @current = DemoNight.current.id
       @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4", "Posse"]
     else
-      flash[:error] = "There is no active demo night, please ask Sal to make one"
+      flash[:error] = "There is no active demo night yet. BRB."
       redirect_to root_path
     end
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = DemoNight.current.projects.new(project_params)
     if @project.save
       flash[:success] = "Project successfully submitted!"
       redirect_to project_path(@project)
@@ -27,12 +26,27 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.where.not(id: current_user.projects)
+    @projects = DemoNight.current.projects
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+    @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4", "Posse"]
+  end
+
+  def update
+    project = Project.find(params[:id])
+    if project.update(project_params)
+      redirect_to project_path(project)
+    else
+      flash[:danger] = "Something went wrong!"
+      redirect_to edit_project_path(project)
+    end
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation, :demo_night_id)
+    params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation, :demo_night_id).merge(user_id: current_user.id)
   end
 end

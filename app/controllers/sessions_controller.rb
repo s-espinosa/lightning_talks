@@ -11,4 +11,9 @@ class SessionsController < ApplicationController
     flash[:success] = "Signed in!"
     redirect_to root_redirect
   end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to root_path
+  end
 end

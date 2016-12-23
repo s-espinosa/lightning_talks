@@ -11,7 +11,7 @@ class VotesController < ApplicationController
     @vote.user = current_user
     if @vote.save
       flash[:success] = "Vote tallied!"
-      redirect_to projects_path
+      redirect_to demo_night_projects_path(@project.demo_night_id)
     else
       flash[:error] = "Vote not registered. Try again."
       redirect_to new_project_vote_path(@project)
@@ -21,6 +21,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:represenatation, :challenge, :wow)
+    params.require(:vote).permit(:representation, :challenge, :wow)
   end
 end

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :user, aliases: [:owner] do
     provider "github"
     sequence :uid do |n|
       "12345#{n}"
@@ -22,6 +22,7 @@ FactoryGirl.define do
     project_type "BE Mod 3"
     final_confirmation true
     demo_night
+    owner
   end
 
   factory :demo_night do
@@ -36,4 +37,5 @@ FactoryGirl.define do
       end
     end
   end
+
 end
