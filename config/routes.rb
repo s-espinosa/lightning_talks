@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: 'home#show'
+
+  get '/no_demo_night', to: "home#no_demo_night"
+
   resources :projects, only: [:new, :create, :index, :show, :edit, :update] do
     resources :votes, only: [:new, :create]
   end
