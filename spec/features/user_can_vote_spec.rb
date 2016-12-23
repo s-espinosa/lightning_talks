@@ -7,6 +7,7 @@ describe "When a user visits a project vote page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit new_project_vote_path(project)
+    sleep(0.1)
     all('div.select-wrapper')[0].click
     find('div.select-wrapper li', text: '3').click
     all('div.select-wrapper')[1].click
