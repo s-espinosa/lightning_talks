@@ -1,0 +1,26 @@
+<nav>
+  <div class="nav-wrapper">
+    <div class="container">
+      <a href="/" class="brand-logo">DEMONS!</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "Dashboard", root_path %></li>
+        <% if current_admin? %>
+          <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% end %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to "Dashboard", root_path %></li>
+        <% if current_admin? %>
+          <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,13 +1,16 @@
-<table>
-  <tr>
-    <th>Project Name</th>
-    <th>Group Members</th>
-    <th>Representation</th>
-    <th>Challenge</th>
-    <th>Wow</th>
-    <th>Total Score</th>
-  </tr>
-  <% projects.each do |project| %>
+<table class="responsive-table">
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Group Members</th>
+      <th>Representation</th>
+      <th>Challenge</th>
+      <th>Wow</th>
+      <th>Total Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% projects.each do |project| %>
     <tr>
       <td><%= project.name %></td>
       <td><%= project.group_members %></td>
@@ -16,5 +19,6 @@
       <td><%= project.average_wow %></td>
       <td><%= project.average_total %></td>
     </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>

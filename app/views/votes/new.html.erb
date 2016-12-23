@@ -1,11 +1,28 @@
-<h1>Vote for <%= @project.name %></h1>
+<div class="row">
+  <div class="col s6 offset-s3">
+    <h1>Vote for <%= @project.name %></h1>
+    <%= form_for([:project, @vote]) do |f| %>
+      <div class="input-field col s12">
+        <%= f.select(:representation, [1, 2, 3, 4, 5], selected: 3) %>
+        <%= f.label "Does this project represent the student community?" %>
+      </div>
+      <div class="input-field col s12">
+        <%= f.select(:challenge, [1, 2, 3, 4, 5], selected: 3) %>
+        <%= f.label "Does this project demonstrate technical excellence (e.g. good practices evident, well tested, technically challenging)?" %>
+      </div>
+      <div class="input-field col s12">
+        <%= f.select(:wow, [1, 2, 3, 4, 5], selected: 3) %>
+        <%= f.label "Is this project/presentation compelling (e.g. solves a real problem, has a great story, wow factor)?" %>
+      </div>
+      <div class="input-field col s12">
+        <%= f.submit "Submit", class: "btn turing-btn waves-effect waves-light" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<%= form_for([:project, @vote]) do |f| %>
-  <%= label_tag "Does this project represent the student community?" %><br>
-  <%= select_tag "vote[representation]", options_for_select([1, 2, 3, 4, 5], 3) %>
-  <%= label_tag "Does this project demonstrate technical excellence (e.g. good practices evident, well tested, technically challenging)?" %><br>
-  <%= select_tag "vote[challenge]", options_for_select([1, 2, 3, 4, 5], 3) %>
-  <%= label_tag "Is this project/presentation compelling (e.g. solves a real problem, has a great story, has a wow factor)?" %><br>
-  <%= select_tag "vote[wow]", options_for_select([1, 2, 3, 4, 5], 3) %>
-  <%= f.submit "Submit" %>
-<% end %>
+<script>
+$(document).ready(function() {
+  $('select').material_select();
+})
+</script>

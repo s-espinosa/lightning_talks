@@ -18,8 +18,12 @@
       </script>
 
     <% end %>
-    <div class="main-container">
+      <%= render partial: "/shared/navbar" %>
+    <div class="main-container container">
       <%= yield %>
     </div>
+    <script>
+    $(".button-collapse").sideNav({ cloceOnClick: true });
+    </script>
   </body>
 </html>
