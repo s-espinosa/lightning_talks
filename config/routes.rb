@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :edit]
   end
 
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/login', to: 'sessions#new'
   get "/auth/:provider/callback", to: "sessions#create"
 end

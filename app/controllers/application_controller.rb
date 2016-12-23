@@ -4,8 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :authorize_user
   helper_method :current_user
   helper_method :owner_and_accepting
+  helper_method :current_admin?
 
   private
+
+  def current_admin?
+    current_user && current_user.admin?
+  end
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

@@ -21,6 +21,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:represenatation, :challenge, :wow)
+    params.require(:vote).permit(:representation, :challenge, :wow)
   end
 end
