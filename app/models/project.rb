@@ -26,4 +26,13 @@ class Project < ApplicationRecord
   def self.check_votes(user_id = nil)
     left_outer_joins(:votes).where(votes: { user_id: user_id })
   end
+
+  def self.current_projects
+    current_demo_night = DemoNight.currents.first
+    if current_demo_night
+      where(demo_night_id: current_demo_night.id)
+    else
+      []
+    end
+  end
 end
