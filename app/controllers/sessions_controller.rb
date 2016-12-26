@@ -9,11 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
     flash[:success] = "Signed in!"
-    if user.admin?
-      redirect_to admin_dashboard_path
-    else
-      redirect_to root_path
-    end
+    redirect_to root_redirect
   end
 
   def destroy

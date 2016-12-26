@@ -1,19 +1,18 @@
-
 <div class="row">
   <div class="col s6 offset-s3">
     <h1>Vote for <%= @project.name %></h1>
     <%= form_for([:project, @vote]) do |f| %>
       <div class="input-field col s12">
         <%= f.select(:representation, [1, 2, 3, 4, 5], selected: 3) %>
-        <%= f.label :representation %>
+        <%= f.label :representation, "Does this project represent the student community?" %>
       </div>
       <div class="input-field col s12">
         <%= f.select(:challenge, [1, 2, 3, 4, 5], selected: 3) %>
-        <%= f.label :challenge %>
+        <%= f.label :challenge, "Does this project demonstrate technical excellence (e.g. good practices evident, well tested, technically challenging)?" %>
       </div>
       <div class="input-field col s12">
         <%= f.select(:wow, [1, 2, 3, 4, 5], selected: 3) %>
-        <%= f.label :wow %>
+        <%= f.label :wow, "Is this project/presentation compelling (e.g. solves a real problem, has a great story, wow factor)?" %>
       </div>
       <div class="input-field col s12">
         <%= f.submit "Submit", class: "btn turing-btn waves-effect waves-light" %>
