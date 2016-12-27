@@ -4,11 +4,23 @@ body {
   color: #000;
 }
 
+h1.page-title {
+  font-size: 3vmax;
+}
+
+h2.page-title {
+  font-size: 2.4vmax;
+}
+
+
 a.turing-btn, a.turing-btn:hover, a.turing-btn:active, a.turing-btn:visited, i.turing-btn, i.turing-btn:hover, i.turing-btn:active, i.turing-btn:visited {
   background-color: $turing-blue;
   margin-right: 10px;
-  @media screen
-  and (max-width: 1024px) {
+}
+
+@media screen
+and (max-width: 1024px) {
+  .btn-large {
     margin-bottom: 20px;
   }
 }
@@ -32,10 +44,7 @@ a.turing-btn, a.turing-btn:hover, a.turing-btn:active, a.turing-btn:visited, i.t
   background-color: $turing-blue;
 }
 
-// @media screen
-// and (max-width: 1024px) {
-//   a.turing-btn, a.turing-btn:hover, a.turing-btn:active, a.turing-btn:visited, i.turing-btn, i.turing-btn:hover, i.turing-btn:active, i.turing-btn:visited {
-//     margin-bottom: 20px;
-//   }
-//
-// }
+i.material-icons {
+  font-size: 12px;
+  color: red;
+}

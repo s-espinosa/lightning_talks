@@ -1,9 +1,22 @@
-<h1>Current Projects</h1>
+<h1 class="page-title">Current Projects</h1>
 
 <% if @projects.current_projects == [] %>
   <p>No current projects.</p>
 <% else %>
+  <ul class="collection">
   <% @projects.current_projects.each do |project| %>
-    <p><%= link_to project.name, edit_admin_project_path(project) %></p>
+  <li class="collection-item avatar">
+    <span class="title"><b>Project Name:</b> <%= link_to project.name, edit_admin_project_path(project) %></span>
+    <p><b>Group:</b> <%= project.members %></p>
+    <p><b>Mod:</b> <%= project.project_type %></p>
+    <a class="secondary-content">Finals: <i class="material-icons">
+      <% if project.final_confirmation %>
+        done
+      <% else %>
+        not_interested
+      <% end %>
+    </i></a>
+  </li>
   <% end %>
+  </ul>
 <% end %>

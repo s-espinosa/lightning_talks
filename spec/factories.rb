@@ -27,7 +27,7 @@ FactoryGirl.define do
 
   factory :demo_night do
     sequence :name do |n|
-      "DemoName#{n}"
+      "DemoName #{n}"
     end
     status 0
 
