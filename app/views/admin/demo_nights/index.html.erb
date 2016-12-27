@@ -1,7 +1,7 @@
 <div class="active-demo-night">
   <h1>Demo Nights</h1>
   <% @demo_nights.currents.each do |dn| %>
-    <%= "#{dn.name} | #{dn.status}" %>
+    <span class="demo-night"><%= "#{dn.name} | #{dn.status}" %></span>
     <% if dn.status != "accepting_submissions" %>
       <%= link_to "switch to accepting submissions", "#", class: "waves-effect waves-light btn turing-btn" %>
     <% end %>
