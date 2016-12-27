@@ -9,13 +9,13 @@
     <span class="title"><b>Project Name:</b> <%= link_to project.name, edit_admin_project_path(project) %></span>
     <p><b>Group:</b> <%= project.members %></p>
     <p><b>Mod:</b> <%= project.project_type %></p>
-    <a class="secondary-content">Finals: <i class="material-icons">
+    <p><b>Finals:</b> <i class="material-icons finals">
       <% if project.final_confirmation %>
         done
       <% else %>
         not_interested
       <% end %>
-    </i></a>
+    </i></p>
   </li>
   <% end %>
   </ul>
