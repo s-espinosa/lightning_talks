@@ -1,15 +1,23 @@
 <div class="active-demo-night">
-  <h1>Demo Nights</h1>
+  <h1>Active Demo Nights</h1>
+  <%= "No active demo night" if @demo_nights.currents.count == 0 %>
   <% @demo_nights.currents.each do |dn| %>
     <span class="demo-night"><%= "#{dn.name} | #{dn.status}" %></span>
     <% if dn.status != "accepting_submissions" %>
-      <%= link_to "switch to accepting submissions", "#", class: "waves-effect waves-light btn turing-btn" %>
+      <%= link_to "accept submissions", admin_demo_night_path(dn, demo_night: {status: :accepting_submissions}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
     <% end %>
     <% if dn.status != "voting" %>
-      <%= link_to "switch to voting", "#", class: "waves-effect waves-light btn turing-btn" %>
+      <%= link_to "open voting", admin_demo_night_path(dn, demo_night: {status: :voting}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
     <% end %>
     <% if dn.status != "closed" %>
-      <%= link_to "switch to closed", "#", class: "waves-effect waves-light btn turing-btn" %>
+      <%= link_to "close", admin_demo_night_path(dn, demo_night: {status: :closed}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
     <% end %>
+  <% end %>
+</div>
+
+<div class="closed-demo-nights">
+  <h1>Closed Demo Nights</h1>
+  <% @demo_nights.inactives.each do |dn| %>
+    <%= link_to dn.name, admin_demo_night_path(dn) %><br>
   <% end %>
 </div>

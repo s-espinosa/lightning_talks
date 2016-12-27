@@ -1,0 +1,21 @@
+<%= form_for [:admin, @project] do |f| %>
+<div class="input-field col s12">
+  <%= f.text_field :name, class: "validate" %>
+  <%= f.label :name %>
+</div>
+<div class="input-field col s12">
+  <%= f.text_field :group_members, class: "validate" %>
+  <%= f.label :group_members %>
+</div>
+<div class="input-field col s12">
+  <%= f.select(:project_type, @modules) %>
+  <%= f.label :project_type %>
+</div>
+<div class="input-field col s12 checkbox">
+  <%= f.check_box :final_confirmation, {}, "true", "false" %>
+  <%= f.label :final_confirmation, 'Are you able to present at the Demo Night Finals?' %>
+</div>
+<div class="input-field col s12">
+  <%= f.submit "Submit", class: "btn turing-btn waves-effect waves-light" %>
+</div>
+<% end %>

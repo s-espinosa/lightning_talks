@@ -17,7 +17,7 @@ describe "when an admin logs in" do
     end
 
     within('.admin-tools') do
-      expect(page).to have_link('Activate Demo Night!')
+      expect(page).to have_link('Open voting!')
     end
   end
 end

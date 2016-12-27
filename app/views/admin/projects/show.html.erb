@@ -1,0 +1,8 @@
+<h1><%= @project.name %></h1>
+
+<p>Group Members: <%= @project.group_members %></p>
+<p>Type: <%= @project.project_type %></p>
+<p>Able to Present at Final Demo Night: <%= @project.final_confirmation %></p>
+
+<p><%= link_to "Edit #{@project.name}", edit_admin_project_path(@project) %></p>
+<p><%= link_to "All Projects", admin_projects_path %></p>
