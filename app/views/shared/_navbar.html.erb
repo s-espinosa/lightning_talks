@@ -1,7 +1,7 @@
 <nav>
   <div class="nav-wrapper">
     <div class="container">
-      <a href="/" class="brand-logo">DEMONS!</a>
+      <a href="/" class="brand-logo">DEMO NIGHT!</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <% if current_admin? %>
@@ -9,7 +9,6 @@
           <li><%= link_to "Demo Nights", admin_demo_nights_path %></li>
         <% end %>
         <% if current_user %>
-          <li><%= link_to "Project", projects_path %></li>
           <li><%= link_to "Create New Project", new_project_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
         <% end %>

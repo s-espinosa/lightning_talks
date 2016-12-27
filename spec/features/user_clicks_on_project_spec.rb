@@ -7,7 +7,8 @@ describe 'When a user clicks on a project name' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit projects_path
-    click_on project.name
+
+    click_on "Vote"
 
     expect(current_path).to eq(new_project_vote_path(project))
   end
