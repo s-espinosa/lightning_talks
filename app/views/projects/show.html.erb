@@ -1,5 +1,24 @@
-<h1><%= @project.name %></h1>
+<div class="row">
+  <div class="col m6 offset-m3 s12">
+    <ul class="collection">
+      <li class="collection-item avatar">
+        <span class="title"><b>Project Name:</b> <%= @project.name %></span>
+        <p><b>Group:</b> <%= @project.members %></p>
+        <p><b>Mod:</b> <%= @project.project_type %></p>
+        <p><b>Finals:</b> <i class="material-icons finals">
+          <% if @project.final_confirmation %>
+          done
+          <% else %>
+          not_interested
+          <% end %>
+        </i></p>
+        <% if current_user.id == @project.user_id %>
+        <p><%= link_to "Edit Project", edit_project_path(@project) %></p>
+        <% end %>
+      </li>
+    </ul>
 
-<p>Group Members: <%= @project.group_members %></p>
-<p>Type: <%= @project.project_type %></p>
-<p>Able to Present at Final Demo Night: <%= @project.final_confirmation %></p>
+    <p>Return to <%= link_to "All Projects", projects_path %></p>
+
+  </div>
+</div>

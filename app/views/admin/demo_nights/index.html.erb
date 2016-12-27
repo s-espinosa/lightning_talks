@@ -1,23 +1,57 @@
 <div class="active-demo-night">
-  <h1>Active Demo Nights</h1>
+  <h2>Active Demo Night</h2>
   <%= "No active demo night" if @demo_nights.currents.count == 0 %>
-  <% @demo_nights.currents.each do |dn| %>
-    <%= "#{dn.name} | #{dn.status.humanize}" %>
-    <% if dn.status != "accepting_submissions" %>
-      <%= link_to "accept submissions", admin_demo_night_path(dn, demo_night: {status: :accepting_submissions}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+  <div class="row">
+    <% @demo_nights.currents.each do |dn| %>
+    <div class="col s12 m6">
+      <div class="card grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= dn.name.humanize %></span>
+          <p>Current Status: <%= dn.status.humanize %></p>
+        </div>
+        <div class="card-action">
+          <p class="white-text">Change status:</p>
+          <% if dn.status != "accepting_submissions" %>
+          <%= link_to "accept submissions", admin_demo_night_path(dn, demo_night: {status: :accepting_submissions}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+          <% end %>
+          <% if dn.status != "voting" %>
+          <%= link_to "open voting", admin_demo_night_path(dn, demo_night: {status: :voting}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+          <% end %>
+          <% if dn.status != "closed" %>
+          <%= link_to "closed", admin_demo_night_path(dn, demo_night: {status: :closed}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <% end %>
-    <% if dn.status != "voting" %>
-      <%= link_to "open voting", admin_demo_night_path(dn, demo_night: {status: :voting}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
-    <% end %>
-    <% if dn.status != "closed" %>
-      <%= link_to "close", admin_demo_night_path(dn, demo_night: {status: :closed}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
-    <% end %>
-  <% end %>
+  </div>
 </div>
 
 <div class="closed-demo-nights">
-  <h1>Closed Demo Nights</h1>
-  <% @demo_nights.inactives.each do |dn| %>
-    <%= link_to dn.name, admin_demo_night_path(dn) %><br>
-  <% end %>
+  <h2>Closed Demo Nights</h2>
+  <%= "No inactive demo nights" if @demo_nights.inactives.count == 0 %>
+  <div class="row">
+    <% @demo_nights.inactives.each do |dn| %>
+    <div class="col s12 m6">
+      <div class="card grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= dn.name.humanize %></span>
+          <p>Current Status: <%= dn.status.humanize %></p>
+        </div>
+        <div class="card-action">
+          <p class="white-text">Change status:</p>
+          <% if dn.status != "accepting_submissions" %>
+          <%= link_to "accept submissions", admin_demo_night_path(dn, demo_night: {status: :accepting_submissions}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+          <% end %>
+          <% if dn.status != "voting" %>
+          <%= link_to "open voting", admin_demo_night_path(dn, demo_night: {status: :voting}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+          <% end %>
+          <% if dn.status != "closed" %>
+          <%= link_to "closed", admin_demo_night_path(dn, demo_night: {status: :closed}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

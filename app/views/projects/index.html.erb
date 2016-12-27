@@ -1,20 +1,32 @@
-<h1>Projects</h1>
-
+<h1 class="page-title">THE PROJECTS</h1>
+<hr>
 <div class="unvoted">
-  <h2>Unvoted</h2>
-  <% @projects.check_votes.each do |project| %>
-    <p>
-      <%= link_to "Vote for #{project.name}", new_project_vote_path(project) %>
+  <h2 class="page-title">Unvoted</h2>
+  <ul class="collection">
+    <% @projects.check_votes.each do |project| %>
+    <li class="collection-item avatar">
+      <span class="title"><b>Project Name:</b> <%= project.name%></span>
+      <p><b>Group:</b> <%= project.members %></p>
+      <p><b>Mod:</b> <%= project.project_type %></p>
+      <%= link_to "Vote", new_project_vote_path(project), class: "waves-effect waves-light btn turing-btn" %>
       <% if owner_and_accepting(project.id) %>
-        - <%= link_to "Edit Project", edit_project_path(project) %>
+      <%= link_to "Edit Project", edit_project_path(project), class: "waves-effect waves-light btn turing-btn" %>
       <% end %>
-    </p>
-  <% end %>
+    </li>
+    <% end %>
+  </ul>
 </div>
 
 <div class="voted">
-  <h2>Already Voted</h2>
-  <% @projects.check_votes(current_user.id).each do |project| %>
-    <p><%= project.name %></p>
-  <% end %>
+  <h2 class="page-title">Already Voted</h2>
+  <ul class="collection">
+    <% @projects.check_votes(current_user.id).each do |project| %>
+    <li class="collection-item avatar">
+      <span class="title"><b>Project Name:</b> <%= project.name%></span>
+      <p><b>Group:</b> <%= project.members %></p>
+      <p><b>Mod:</b> <%= project.project_type %></p>
+    </li>
+
+    <% end %>
+  </ul>
 </div>

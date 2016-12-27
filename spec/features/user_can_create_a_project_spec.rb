@@ -19,6 +19,6 @@ describe 'When a user visits the new project path', js: true do
     expect(page).to have_content("Project successfully submitted!")
     expect(page).to have_content("Witty Name")
     expect(page).to have_content("Sharon Jones")
-    expect(page).to have_content("Able to Present at Final Demo Night: true")
+    expect(page).to have_content("Finals: done")
   end
 end

@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    flash[:danger] = "Logged Out!"
     redirect_to root_path
   end
 end
