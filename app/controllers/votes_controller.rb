@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_filter :check_voting
 
   def new
     @project = Project.find(params[:project_id])
@@ -22,5 +23,12 @@ class VotesController < ApplicationController
 
   def vote_params
     params.require(:vote).permit(:representation, :challenge, :wow)
+  end
+
+  def check_voting
+    unless DemoNight.currents.first.voting?
+      flash[:error] = "Voting not yet started for the current Demo Night"
+      redirect_to root_path unless DemoNight.currents.first.voting?
+    end
   end
 end
