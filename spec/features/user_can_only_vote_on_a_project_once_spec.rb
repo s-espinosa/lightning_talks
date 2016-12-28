@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "When a user votes on a project" do
   it "they can only vote on a project once" do
-    demo_night = create(:demo_night_with_projects)
+    demo_night = create(:demo_night_with_projects, status: 'voting')
     project1, project2 =  demo_night.projects
 
     user = create(:user)
@@ -13,7 +13,7 @@ describe "When a user votes on a project" do
       expect(page).to have_content(project2.name)
     end
 
-    first('.collection-item').click_link("Vote")
+    click_link('Vote', href: new_project_vote_path(project1))
     select "3", from: "vote[representation]"
     select "3", from: "vote[challenge]"
     select "3", from: "vote[wow]"

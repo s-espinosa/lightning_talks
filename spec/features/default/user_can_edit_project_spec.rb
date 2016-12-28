@@ -15,10 +15,17 @@ describe 'A user edits a project' do
     fill_in "project[name]", with: "Mark Miranda Pushes Code"
     click_on "Submit"
 
-    expect(current_path).to eq(project_path(@project))
+    expect(current_path).to eq(projects_path)
     expect(page).to have_content("Mark Miranda Pushes Code")
     expect(page).to_not have_content(@project.name)
-	end
+    within('nav') do
+      expect(page).to have_link("New Project")
+      expect(page).to have_link("Current Projects")
+    end
+    within('.unvoted') do
+      expect(page).to_not have_link("Vote")
+    end
+  end
 
   it 'edit project - sad path', js: true do
     visit projects_path
@@ -27,12 +34,11 @@ describe 'A user edits a project' do
     click_on "Submit"
 
     expect(page).to have_content("Something went wrong!")
-	end
+  end
 
   it 'does not let a user edit a project if demo night is voting or closed' do
     @demonight.update(status: "voting")
     visit projects_path
     expect(page).to_not have_link("Edit Project")
   end
-
 end

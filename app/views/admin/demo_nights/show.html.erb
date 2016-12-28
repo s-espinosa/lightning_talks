@@ -1,21 +1,38 @@
-<h1><%= @demo_night.name %></h1>
-
-<div class="admin-tools">
-  <% if @demo_night.accepting_submissions? %>
-    <%= link_to "Open voting!", admin_demo_night_path(@demo_night, demo_night: {status: :voting}), method: :patch %>
-  <% elsif @demo_night.voting? %>
-    <%= link_to "Close!", admin_demo_night_path(@demo_night, demo_night: {status: :closed}), method: :patch %>
-  <% else %>
-    <p>Closed</p>
-  <% end %>
+<div class="admin-tools row">
+  <div class="col s12 m6">
+    <div class="card grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title"><%= @demo_night.name.humanize %></span>
+        <p>Current Status: <%= @demo_night.status.humanize %></p>
+      </div>
+      <div class="card-action">
+        <p class="white-text">Change status:</p>
+        <% if @demo_night.status != "accepting_submissions" %>
+        <%= link_to "accept submissions", admin_demo_night_path(@demo_night, demo_night: {status: :accepting_submissions}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+        <% end %>
+        <% if @demo_night.status != "voting" %>
+        <%= link_to "open voting", admin_demo_night_path(@demo_night, demo_night: {status: :voting}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+        <% end %>
+        <% if @demo_night.status != "closed" %>
+        <%= link_to "closed", admin_demo_night_path(@demo_night, demo_night: {status: :closed}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="projects">
   <% if @demo_night.projects.count == 0 %>
     No Projects Yet!
+  <% elsif @demo_night.votes.count == 0 %>
+    <ul>
+      <% @demo_night.projects.each do |project| %>
+        <li>
+        <%= link_to project.name, admin_project_path(project) %><%= link_to "Edit", edit_admin_project_path(project), class: 'waves-effect waves-light btn turing-btn' %><br>
+        </li>
+      <% end %>
+    </ul>
   <% else %>
-    <% @demo_night.projects.each do |project| %>
-      <%= link_to project.name, admin_project_path(project) %><br>
-    <% end %>
+    <%= render partial: 'vote_talley', locals: {projects: @demo_night.projects} %>
   <% end %>
 </div>

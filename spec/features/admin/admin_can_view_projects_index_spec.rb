@@ -6,8 +6,10 @@ describe "When an admin visits the admin projects path" do
     project = create(:project)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit admin_dashboard_path
-    click_on "Current Projects"
+    visit admin_demo_nights_path
+    within('.hide-on-med-and-down') do
+      click_on "Current Projects"
+    end
 
     expect(current_path).to eq(admin_projects_path)
     expect(page).to have_content(project.name)

@@ -1,5 +1,6 @@
 class Admin::DemoNightsController < Admin::BaseController
   before_action :check_active_demo_nights, only: :create
+  before_action :check_active_for_update, only: :update
 
   def index
     @demo_nights = DemoNight.all
@@ -45,4 +46,12 @@ class Admin::DemoNightsController < Admin::BaseController
       redirect_to admin_demo_nights_path
     end
   end
+
+  def check_active_for_update
+    if DemoNight.all.currents.any? && demo_night_params![:status] != "closed"
+      flash[:danger] = "There can only be 1 active demo night at a time."
+      redirect_to admin_demo_nights_path
+    end
+  end
+
 end
