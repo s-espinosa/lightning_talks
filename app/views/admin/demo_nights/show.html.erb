@@ -14,9 +14,13 @@
   <% if @demo_night.projects.count == 0 %>
     No Projects Yet!
   <% elsif @demo_night.votes.count == 0 %>
-    <% @demo_night.projects.each do |project| %>
-      <%= link_to project.name, admin_project_path(project) %><br>
-    <% end %>
+    <ul>
+      <% @demo_night.projects.each do |project| %>
+        <li>
+        <%= link_to project.name, admin_project_path(project) %><%= link_to "Edit", edit_admin_project_path(project), class: 'waves-effect waves-light btn turing-btn' %><br>
+        </li>
+      <% end %>
+    </ul>
   <% else %>
     <%= render partial: 'vote_talley', locals: {projects: @demo_night.projects} %>
   <% end %>
