@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @project = DemoNight.current.projects.new(project_params)
     if @project.save
       flash[:success] = "Project successfully submitted!"
-      redirect_to project_path(@project)
+      redirect_to projects_path
     else
       flash[:error] = "There was an issue creating this project"
       redirect_to new_project_path
