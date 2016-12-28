@@ -13,7 +13,6 @@ describe "When a user votes on a project" do
       expect(page).to have_content(project2.name)
     end
 
-    # click_link("#{project1.name}")
     first('.collection-item').click_link("Vote")
     select "3", from: "vote[representation]"
     select "3", from: "vote[challenge]"
@@ -21,11 +20,11 @@ describe "When a user votes on a project" do
     click_button("Submit")
     expect(current_path).to eq("/demo_nights/#{demo_night.id}/projects")
     within ('.unvoted') do
-      expect(page).to_not have_content(project2.name)
+      expect(page).to_not have_content(project1.name)
     end
-    
+
     within ('.voted') do
-      expect(page).to have_content(project2.name)
+      expect(page).to have_content(project1.name)
     end
   end
 end
