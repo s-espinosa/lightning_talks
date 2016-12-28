@@ -48,9 +48,11 @@ class Admin::DemoNightsController < Admin::BaseController
   end
 
   def check_active_for_update
-    if DemoNight.all.currents.any? && demo_night_params![:status] != "closed"
-      flash[:danger] = "There can only be 1 active demo night at a time."
-      redirect_to admin_demo_nights_path
+    if DemoNight.currents.any?
+      if DemoNight.current.id != params[:id].to_i
+        flash[:danger] = "There can only be 1 active demo night at a time."
+        redirect_to admin_demo_nights_path
+      end
     end
   end
 
