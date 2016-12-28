@@ -13,9 +13,11 @@
 <div class="projects">
   <% if @demo_night.projects.count == 0 %>
     No Projects Yet!
-  <% else %>
+  <% elsif @demo_night.votes.count == 0 %>
     <% @demo_night.projects.each do |project| %>
       <%= link_to project.name, admin_project_path(project) %><br>
     <% end %>
+  <% else %>
+    <%= render partial: 'vote_talley', locals: {projects: @demo_night.projects} %>
   <% end %>
 </div>

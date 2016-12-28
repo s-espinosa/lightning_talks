@@ -11,7 +11,7 @@ describe "When an admin visits the admin dashboard path" do
     project1.votes.create(user: user, representation: 3, challenge: 3, wow: 3)
     project2.votes.create(user: user, representation: 2, challenge: 2, wow: 2)
 
-    visit admin_dashboard_path
+    visit admin_demo_night_path(demo_night)
     within("tr:nth-of-type(2)") do
       within(":nth-child(1)") do
         expect(page).to have_content(project2.name)
@@ -31,9 +31,6 @@ describe "When an admin visits the admin dashboard path" do
       within(":nth-child(6)") do
         expect(page).to have_content("6")
       end
-    end
-    within("tr:nth-of-type(2)") do
-      expect(page).to have_content(project2.name)
     end
   end
 end
