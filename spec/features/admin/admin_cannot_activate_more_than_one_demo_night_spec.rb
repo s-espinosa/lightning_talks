@@ -14,6 +14,9 @@ describe "on updating status of demo night", js: true  do
       click_link("open voting")
     end
     expect(page).to have_content("There can only be 1 active demo night at a time")
+    within('.closed-demo-nights') do
+      expect(page).to have_content(@closed.name)
+    end
   end
 
   it "allows active demo night to be closed - from index" do
@@ -24,6 +27,9 @@ describe "on updating status of demo night", js: true  do
 
     @active.reload
     expect(page).to have_content("#{@active.name} now #{@active.status.humanize.downcase}")
+    within('.closed-demo-nights') do
+      expect(page).to have_content(@active.name)
+    end
   end
 
   it "only allows one active demo night - from show" do
@@ -31,13 +37,19 @@ describe "on updating status of demo night", js: true  do
     click_link("open voting")
 
     expect(page).to have_content("There can only be 1 active demo night at a time")
+    within('.closed-demo-nights') do
+      expect(page).to have_content(@closed.name)
+    end
   end
 
   it "allows active demo night to be closed - from show" do
     visit admin_demo_night_path(@active)
     click_link("closed")
-    
+
     @active.reload
     expect(page).to have_content("#{@active.name} now #{@active.status.humanize.downcase}")
+    within('.closed-demo-nights') do
+      expect(page).to have_content(@active.name)
+    end
   end
 end
