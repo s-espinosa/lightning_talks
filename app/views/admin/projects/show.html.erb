@@ -5,4 +5,5 @@
 <p>Able to Present at Final Demo Night: <%= @project.final_confirmation %></p>
 
 <p><%= link_to "Edit #{@project.name}", edit_admin_project_path(@project) %></p>
+<p><%= link_to "Other Projects from this Demo Night", admin_demo_night_path(@project.demo_night) %></p>
 <p><%= link_to "All Projects", admin_projects_path %></p>

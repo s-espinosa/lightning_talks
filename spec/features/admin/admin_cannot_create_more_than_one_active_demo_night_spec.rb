@@ -17,7 +17,7 @@ describe "when an admin creates a demo night", js: true do
     expect(current_path).to eq(admin_demo_nights_path)
     expect(page).to have_content("There can only be 1 active demo night at a time.")
     within('.active-demo-night') do
-      expect(page).to have_content(@demo_night.name.humanize)
+      expect(page).to have_content(@demo_night.name)
     end
 
   end

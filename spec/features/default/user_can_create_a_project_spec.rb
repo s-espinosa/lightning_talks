@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'When a user visits the new project path', js: true do
   it 'they can create a new project' do
-    create(:demo_night)
+    create(:demo_night_with_projects)
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -14,11 +14,16 @@ describe 'When a user visits the new project path', js: true do
     find('label', text: 'Are you able to present at the Demo Night Finals?').click
     click_on "Submit"
 
-    project = Project.last
-    expect(current_path).to eq(project_path(project))
+    new_project      = Project.last
+    existing_project = Project.first
+    expect(current_path).to eq(projects_path)
     expect(page).to have_content("Project successfully submitted!")
-    expect(page).to have_content("Witty Name")
-    expect(page).to have_content("Sharon Jones")
-    expect(page).to have_content("Finals: done")
+    within('.unvoted') do
+      expect(page).to have_content("Witty Name")
+      expect(page).to have_content("Sharon Jones")
+      expect(page).to have_link("Edit Project", href: edit_project_path(new_project))
+      expect(page).to_not have_link("Edit Project", href: edit_project_path(existing_project))
+      expect(page).to_not have_link("Vote")
+    end
   end
 end

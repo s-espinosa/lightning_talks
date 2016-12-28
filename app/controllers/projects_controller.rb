@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @project = DemoNight.current.projects.new(project_params)
     if @project.save
       flash[:success] = "Project successfully submitted!"
-      redirect_to project_path(@project)
+      redirect_to projects_path
     else
       flash[:error] = "There was an issue creating this project"
       redirect_to new_project_path
@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
   def update
     project = Project.find(params[:id])
     if project.update(project_params)
-      redirect_to project_path(project)
+      redirect_to projects_path
     else
       flash[:danger] = "Something went wrong!"
       redirect_to edit_project_path(project)

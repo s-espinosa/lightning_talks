@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def root_redirect
     if current_user.admin?
-      admin_dashboard_path
+      admin_demo_nights_path
     elsif DemoNight.current && DemoNight.current.accepting_submissions?
       new_project_path
     elsif DemoNight.current && DemoNight.current.voting?
