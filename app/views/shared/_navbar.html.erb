@@ -12,8 +12,12 @@
           <li><%= link_to "Log Out", logout_path %></li>
         <% end %>
         <% if current_user && !current_admin? %>
-          <li><%= link_to "Current Projects", projects_path %></li>
-          <li><%= link_to "New Project", new_project_path %></li>
+          <% if accepting_submissions? %>
+            <li><%= link_to "New Project", new_project_path %></li>
+          <% end %>
+          <% if current_demo_night? %>
+            <li><%= link_to "Current Projects", projects_path %></li>
+          <% end %>
           <li><%= link_to "Log Out", logout_path %></li>
         <% end %>
       </ul>
@@ -26,8 +30,12 @@
           <li><%= link_to "Log Out", logout_path %></li>
         <% end %>
         <% if current_user && !current_admin? %>
-          <li><%= link_to "Current Projects", projects_path %></li>
-          <li><%= link_to "New Project", new_project_path %></li>
+          <% if accepting_submissions? %>
+            <li><%= link_to "New Project", new_project_path %></li>
+          <% end %>
+          <% if current_demo_night? %>
+            <li><%= link_to "Current Projects", projects_path %></li>
+          <% end %>
           <li><%= link_to "Log Out", logout_path %></li>
         <% end %>
       </ul>
