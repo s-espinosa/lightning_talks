@@ -24,11 +24,8 @@ class Project < ApplicationRecord
   end
 
   def self.unvoted_by_user(user_id)
-    query  = "SELECT projects.id FROM projects LEFT JOIN(SELECT * FROM votes WHERE user_id = #{user_id}) AS user_votes ON projects.id = user_votes.project_id WHERE user_votes.user_id IS NULL;"
-    result = ActiveRecord::Base.connection.execute(query)
-    result.map do |id_hash|
-      Project.find_by(id_hash)
-    end
+    projects = Vote.where(user_id: user_id).pluck(:project_id)
+    where.not(id: projects)
   end
 
   def self.voted_by_user(user_id)
