@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_filter :check_voting
+  before_action :check_voting
 
   def new
     @project = Project.find(params[:project_id])
