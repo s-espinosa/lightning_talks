@@ -40,8 +40,4 @@ class Project < ApplicationRecord
       []
     end
   end
-
-  def members
-    "#{owner.name}, #{group_members}"
-  end
 end
