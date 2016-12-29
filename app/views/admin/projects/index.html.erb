@@ -7,7 +7,7 @@
   <% @projects.current_projects.each do |project| %>
   <li class="collection-item avatar">
     <span class="title"><b>Project Name:</b> <%= link_to project.name, edit_admin_project_path(project) %></span>
-    <p><b>Group:</b> <%= project.members %></p>
+    <p><b>Group:</b> <%= project.group_members %></p>
     <p><b>Mod:</b> <%= project.project_type %></p>
     <p><b>Finals:</b> <i class="material-icons finals">
       <% if project.final_confirmation %>
