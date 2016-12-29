@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/login', to: 'sessions#new'
   get "/auth/:provider/callback", to: "sessions#create"
+
+  get '/errors/404', to: 'errors#show', as: 'errors_404'
+
 end
