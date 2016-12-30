@@ -12,7 +12,9 @@ h2.page-title {
   font-size: 2.4vmax;
 }
 
-a.turing-btn, a.turing-btn:hover, a.turing-btn:active, a.turing-btn:visited, i.turing-btn, i.turing-btn:hover, i.turing-btn:active, i.turing-btn:visited {
+input.turing-btn, input.turing-btn:hover, input.turing-btn:active, input.turing-btn:hover,
+a.turing-btn, a.turing-btn:hover, a.turing-btn:active, a.turing-btn:visited,
+i.turing-btn, i.turing-btn:hover, i.turing-btn:active, i.turing-btn:visited {
   background-color: $turing-blue;
   margin-top: 10px;
   margin-right: 10px;
