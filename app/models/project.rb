@@ -44,8 +44,4 @@ class Project < ApplicationRecord
       []
     end
   end
-
-  def self.scored_order
-    sort_by { |p| p.average_total }.reverse
-  end
 end
