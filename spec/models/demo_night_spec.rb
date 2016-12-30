@@ -40,7 +40,7 @@ RSpec.describe DemoNight, type: :model do
       projects = [project1, project2, project3]
       demonight = create(:demo_night) 
       demonight.projects << projects 
-      demonight_projects = demonight.projects.scored_order
+      demonight_projects = demonight.sorted_projects
 
       expect(demonight_projects.first.name).to eq(project3.name)
       expect(demonight_projects.last.name).to eq(project2.name)
