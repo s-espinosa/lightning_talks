@@ -14,7 +14,7 @@
     <% flash.each do |key, value| %>
       <script>
       var $toastConcent = $('<div class="<%= key %>"><%= value %></div>');
-      Materialize.toast($toastConcent, 4000);
+      Materialize.toast($toastConcent, 8000);
       </script>
 
     <% end %>
