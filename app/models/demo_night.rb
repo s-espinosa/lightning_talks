@@ -19,4 +19,8 @@ class DemoNight < ApplicationRecord
   def active?
     status != "closed"
   end
+
+  def sorted_projects
+    projects.sort_by { |p| p.average_total }.reverse
+  end
 end
