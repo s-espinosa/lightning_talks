@@ -3,10 +3,10 @@
 <div class="unvoted">
   <h2 class="page-title">Unvoted</h2>
   <ul class="collection">
-    <% @projects.check_votes.each do |project| %>
+    <% @projects.unvoted_by_user(current_user.id).each do |project| %>
       <li class="collection-item avatar">
         <span class="title"><b>Project Name:</b> <%= project.name%></span>
-        <p><b>Group:</b> <%= project.members %></p>
+        <p><b>Group:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
         <% if voting? %>
           <%= link_to "Vote", new_project_vote_path(project), class: "waves-effect waves-light btn turing-btn" %>
@@ -22,10 +22,10 @@
 <div class="voted">
   <h2 class="page-title">Already Voted</h2>
   <ul class="collection">
-    <% @projects.check_votes(current_user.id).each do |project| %>
+    <% @projects.voted_by_user(current_user.id).each do |project| %>
       <li class="collection-item avatar">
         <span class="title"><b>Project Name:</b> <%= project.name%></span>
-        <p><b>Group:</b> <%= project.members %></p>
+        <p><b>Group:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
       </li>
 

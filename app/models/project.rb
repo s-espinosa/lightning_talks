@@ -23,8 +23,13 @@ class Project < ApplicationRecord
     (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count if votes.count != 0
   end
 
-  def self.check_votes(user_id = nil)
-    left_outer_joins(:votes).where(votes: { user_id: user_id })
+  def self.unvoted_by_user(user_id)
+    projects = Vote.where(user_id: user_id).pluck(:project_id)
+    where.not(id: projects)
+  end
+
+  def self.voted_by_user(user_id)
+    joins(:votes).where("votes.user_id = #{user_id}")
   end
 
   def self.current_projects
@@ -34,9 +39,5 @@ class Project < ApplicationRecord
     else
       []
     end
-  end
-
-  def members
-    "#{owner.name}, #{group_members}"
   end
 end
