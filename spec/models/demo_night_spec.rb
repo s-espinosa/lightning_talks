@@ -25,4 +25,25 @@ RSpec.describe DemoNight, type: :model do
     end
   end
 
+  context '#sorted_projects' do
+    it 'returns projects based on their average total votes' do
+      demonight = create(:demo_night_with_projects)
+      project1 = demonight.projects.first
+      project2 = demonight.projects.last
+      project3 = create(:project, demo_night: demonight)
+      user1 = User.first
+      user2 = User.second
+      project1.votes.create(user: user1, representation: 1, challenge: 1, wow: 1)
+      project1.votes.create(user: user2, representation: 2, challenge: 2, wow: 2)
+      project3.votes.create(user: user1, representation: 5, challenge: 5, wow: 5)
+      project3.votes.create(user: user2, representation: 5, challenge: 5, wow: 5)
+      projects = [project1, project2, project3]
+      demonight = create(:demo_night) 
+      demonight.projects << projects 
+      demonight_projects = demonight.projects.scored_order
+
+      expect(demonight_projects.first.name).to eq(project3.name)
+      expect(demonight_projects.last.name).to eq(project2.name)
+    end
+  end
 end
