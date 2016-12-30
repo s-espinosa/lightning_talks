@@ -1,6 +1,7 @@
 class DemoNight < ApplicationRecord
   has_many :projects
   has_many :votes, through: :projects
+  validates :final_date, presence: true
 
   enum status: [:accepting_submissions, :voting, :closed]
 

@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col l6 offset-l3 s10 offset-s1">
     <%= form_for @demo_night, url: admin_demo_nights_path do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-    <%= f.submit "Create Demo Night!", class: "waves-effect waves-light btn turing-btn"%>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+      <%= f.label :final_date, "Date of Finals" %>
+      <%= f.date_field :final_date %>
+      <%= f.submit "Create Demo Night!", class: "waves-effect waves-light btn turing-btn"%>
     <% end %>
   </div>
 </div>
