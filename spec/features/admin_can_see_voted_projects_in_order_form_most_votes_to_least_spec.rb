@@ -1,9 +1,5 @@
 require 'rails_helper'
 
-When I visit the DemoNight show page
-The projects associated with that Demo Night are displayed
-In order of their total average scores
-
 describe 'admin visits demo-night show path' do
   context 'with existing demonight and voted projects' do
     scenario 'they see the projects in order from most votes to least votes' do
