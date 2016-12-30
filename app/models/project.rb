@@ -20,7 +20,11 @@ class Project < ApplicationRecord
   end
 
   def average_total
-    (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count if votes.count != 0
+    if votes.count != 0
+      (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count
+    else
+      0
+    end
   end
 
   def self.unvoted_by_user(user_id)
@@ -39,5 +43,9 @@ class Project < ApplicationRecord
     else
       []
     end
+  end
+
+  def self.scored_order
+    sort_by { |p| p.average_total }.reverse
   end
 end
