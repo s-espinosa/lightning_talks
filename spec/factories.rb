@@ -30,6 +30,7 @@ FactoryGirl.define do
       "DemoName #{n}"
     end
     status 0
+    final_date '2017/01/23'
 
     factory :demo_night_with_projects do
       after(:create) do |demo_night, evaluator|

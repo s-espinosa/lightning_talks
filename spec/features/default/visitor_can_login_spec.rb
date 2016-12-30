@@ -15,7 +15,7 @@ describe "When a visitor tries to log in" do
 
   context "with a demo night accepting submissions" do
     it "they log in and see a form to submit" do
-      DemoNight.create(name: "New Night", status: "accepting_submissions")
+      create(:demo_night)
 
       visit '/'
       expect(current_path).to eq('/login')
@@ -32,7 +32,6 @@ describe "When a visitor tries to log in" do
 
   context "with a demo night accepting votes" do
     it "they log in and see a list of projects" do
-      # DemoNight.create(name: "New Night", status: "voting")
       create(:demo_night_with_projects, status: 'voting')
 
       visit '/'

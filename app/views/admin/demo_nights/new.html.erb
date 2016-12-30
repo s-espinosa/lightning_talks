@@ -3,6 +3,8 @@
     <%= form_for @demo_night, url: admin_demo_nights_path do |f| %>
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %>
+    <%= f.label :final_date, "Date of Finals" %>
+    <%= f.date_field :final_date %>
     <%= f.submit "Create Demo Night!", class: "waves-effect waves-light btn turing-btn btn-large"%>
     <% end %>
   </div>

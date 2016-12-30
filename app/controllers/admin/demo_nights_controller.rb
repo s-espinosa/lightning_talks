@@ -16,6 +16,7 @@ class Admin::DemoNightsController < Admin::BaseController
 
   def create
     dn = DemoNight.new(demo_night_params!)
+    dn.final_date = format_date(params[:demo_night][:final_date])
     if dn.save
       redirect_to admin_demo_night_path(dn)
     else
@@ -25,6 +26,10 @@ class Admin::DemoNightsController < Admin::BaseController
 
   def update
     dn = DemoNight.find(params[:id])
+    if params[:demo_night][:final_date]
+      dn.final_date = format_date(params[:demo_night][:final_date])
+    end
+
     if dn.update(demo_night_params!)
       flash[:success] = "#{dn.name} now #{dn.status.humanize.downcase}"
       redirect_to admin_demo_nights_path
@@ -37,7 +42,7 @@ class Admin::DemoNightsController < Admin::BaseController
   private
 
   def demo_night_params!
-    params.require(:demo_night).permit(:name, :status)
+    params.require(:demo_night).permit(:name, :status, :final_date)
   end
 
   def check_active_demo_nights
@@ -56,4 +61,8 @@ class Admin::DemoNightsController < Admin::BaseController
     end
   end
 
+  def format_date(date)
+    month, day, year = date.split('/')
+    [year, month, day].join
+  end
 end
