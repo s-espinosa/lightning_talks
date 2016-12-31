@@ -11,7 +11,7 @@ describe 'When a user visits the new project path', js: true do
     fill_in "project[name]", with: "Witty Name"
     find('div.select-wrapper input').click
     find('div.select-wrapper li', text: 'BE Mod 3').click
-    find('label', text: 'Are you able to present at the Demo Night Finals?').click
+    find('label', text: "Are you able to present at the Demo Night Finals on #{DemoNight.last.final_date}?").click
     click_on "Submit"
 
     new_project      = Project.last
