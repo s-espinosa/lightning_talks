@@ -25,7 +25,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def destroy
     Project.find(params[:id]).delete
-  redirect_to request.referrer
+    redirect_to request.referrer
   end
 
   private
