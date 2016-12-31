@@ -28,7 +28,10 @@
         <% end %>
       </i></td>
       <td>
-        <%= link_to "Edit", edit_admin_project_path(project), class: 'waves-effect waves-light btn turing-btn' %>
+        <%= link_to "Edit", edit_admin_project_path(project), class: 'btn turing-btn' %>
+        <%= button_to "Delete", admin_project_path(:id => project.id), :method => :delete, data: { confirm: "Are you sure?" },  class: 'btn turing-btn' %>
+        <%# button_to "Delete Image", { action: "delete", id: project.id },
+                                        method: :delete, data: { confirm: "Are you sure?" }, class: 'btn turing-btn' %>
       </td>
     </tr>
     <% end %>
