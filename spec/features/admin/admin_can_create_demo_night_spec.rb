@@ -15,6 +15,7 @@ describe "when an admin logs in" do
       click_link "Create New Demo Night"
     end
     fill_in "Name", with: "Demo Night - 1611"
+    fill_in("demo_night[final_date]", with: "01/23/2017")
     click_button "Create Demo Night!"
 
     expect(current_path).to eq("/admin/demo_nights/#{DemoNight.last.id}")
@@ -25,5 +26,6 @@ describe "when an admin logs in" do
     within('.admin-tools') do
       expect(page).to have_link('open voting')
     end
+    expect(DemoNight.last.final_date).to eq(Date.new(2017, 01, 23))
   end
 end

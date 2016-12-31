@@ -20,7 +20,11 @@ class Project < ApplicationRecord
   end
 
   def average_total
-    (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count if votes.count != 0
+    if votes.count != 0
+      (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count.to_f
+    else
+      0
+    end
   end
 
   def self.unvoted_by_user(user_id)

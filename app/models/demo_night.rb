@@ -1,6 +1,7 @@
 class DemoNight < ApplicationRecord
   has_many :projects
   has_many :votes, through: :projects
+  validates :final_date, presence: true
 
   enum status: [:accepting_submissions, :voting, :closed]
 
@@ -18,5 +19,9 @@ class DemoNight < ApplicationRecord
 
   def active?
     status != "closed"
+  end
+
+  def sorted_projects
+    projects.sort_by { |p| p.average_total }.reverse
   end
 end
