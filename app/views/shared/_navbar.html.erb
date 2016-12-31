@@ -6,7 +6,9 @@
       <ul class="right hide-on-med-and-down">
         <% if current_admin? %>
           <li><%= link_to "Demo Nights", admin_demo_nights_path %></li>
-          <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
+          <% if !current_demo_night? %>
+            <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
+          <% end %>
           <li><%= link_to "Current Projects", admin_projects_path %></li>
           <li><%= link_to "New Project", new_project_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
@@ -24,7 +26,9 @@
       <ul class="side-nav" id="mobile-demo">
         <% if current_admin? %>
           <li><%= link_to "Demo Nights", admin_demo_nights_path %></li>
-          <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
+          <% if !current_demo_night? %>
+            <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
+          <% end %>
           <li><%= link_to "Current Projects", admin_projects_path %></li>
           <li><%= link_to "New Project", new_project_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
