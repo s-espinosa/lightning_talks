@@ -21,7 +21,7 @@ class Project < ApplicationRecord
 
   def average_total
     if votes.count != 0
-      (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count
+      (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count.to_f
     else
       0
     end
