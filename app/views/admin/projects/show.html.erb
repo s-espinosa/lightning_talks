@@ -1,9 +1,29 @@
-<h1><%= @project.name %></h1>
+<div class="container">
 
-<p>Group Members: <%= @project.group_members %></p>
-<p>Type: <%= @project.project_type %></p>
-<p>Able to Present at Final Demo Night: <%= @project.final_confirmation %></p>
+  <div class="row">
 
-<p><%= link_to "Edit #{@project.name}", edit_admin_project_path(@project) %></p>
-<p><%= link_to "Other Projects from this Demo Night", admin_demo_night_path(@project.demo_night) %></p>
-<p><%= link_to "All Projects", admin_projects_path %></p>
+
+    <div class="col s12 m6 offset-m3">
+      <div class="card grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= @project.name %></span>
+          <p>Group Members: <%= @project.group_members %></p>
+          <p>
+            Able to present at finals:
+            <i class="material-icons finals">
+              <% if @project.final_confirmation %>
+              done
+              <% else %>
+              not_interested
+              <% end %>
+            </i>
+          </p>
+        </div>
+        <div class="card-action">
+          <p><%= link_to "Edit #{@project.name}", edit_admin_project_path(@project), class: 'btn turing-btn waves-effect waves-light' %></p>
+          <p><%= link_to "Other Projects from this Demo Night", admin_demo_night_path(@project.demo_night), class: 'btn turing-btn waves-effect waves-light' %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
