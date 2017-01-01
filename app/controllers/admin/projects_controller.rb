@@ -23,6 +23,11 @@ class Admin::ProjectsController < Admin::BaseController
     @project = Project.find(params[:id])
   end
 
+  def destroy
+    Project.find(params[:id]).delete
+    redirect_to request.referrer
+  end
+
   private
   def project_params
     params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation)

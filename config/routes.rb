@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
     resources :demo_nights, only: [:index, :show, :new, :create, :update]
-    resources :projects, only: [:index, :edit, :update, :show]
+    resources :projects, only: [:index, :edit, :update, :show, :destroy]
   end
 
   get '/logout', to: 'sessions#destroy', as: 'logout'
