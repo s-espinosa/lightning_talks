@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "logged in admin" do
-  it "can delete a project from the demo nights index" do
+  it "can delete a project from the demo nights index", js: true do
     admin = create(:admin)
     demo_night = create(:demo_night_with_projects)
     project1, project2 = demo_night.projects
@@ -10,10 +10,12 @@ describe "logged in admin" do
     visit admin_demo_night_path(demo_night)
     within('.projects > table > tbody') do
       within('tr:nth-child(1)') do
-        click_button("Delete")
+        page.accept_confirm do
+          click_button("Delete")
+        end
       end
     end
-    expect(page).to_not have_content(project1.name)
+    expect(page).to_not have_content(project2.name)
 
   end
 end
