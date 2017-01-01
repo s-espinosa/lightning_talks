@@ -32,7 +32,7 @@ FactoryGirl.define do
     status 0
     final_date '2017/01/23'
 
-      factory :demo_night_with_projects do
+    factory :demo_night_with_projects do
       after(:create) do |demo_night, evaluator|
         create_list(:project, 2, demo_night: demo_night)
       end
