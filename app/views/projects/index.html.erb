@@ -1,7 +1,7 @@
 <h1 class="page-title">THE PROJECTS</h1>
 <hr>
 <div class="unvoted">
-  <h2 class="page-title">Unvoted</h2>
+  <h2 class="page-title">Not Yet Rated</h2>
   <ul class="collection">
     <% @projects.unvoted_by_user(current_user.id).each do |project| %>
       <li class="collection-item avatar">
@@ -9,7 +9,7 @@
         <p><b>Group:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
         <% if voting? %>
-          <%= link_to "Vote", new_project_vote_path(project), class: "waves-effect waves-light btn turing-btn" %>
+          <%= link_to "Rate", new_project_vote_path(project), class: "waves-effect waves-light btn turing-btn" %>
         <% end %>
         <% if owner_and_accepting(project.id) %>
           <%= link_to "Edit Project", edit_project_path(project), class: "waves-effect waves-light btn turing-btn" %>
@@ -20,7 +20,7 @@
 </div>
 
 <div class="voted">
-  <h2 class="page-title">Already Voted</h2>
+  <h2 class="page-title">Already Rated</h2>
   <ul class="collection">
     <% @projects.voted_by_user(current_user.id).each do |project| %>
       <li class="collection-item avatar">
