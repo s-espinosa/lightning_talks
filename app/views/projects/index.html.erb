@@ -28,7 +28,22 @@
         <p><b>Group:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
       </li>
+    <% end %>
+  </ul>
+</div>
 
+<div class="ineligible">
+  <h2 class="page-title">Internal Demo Night Only</h2>
+  <ul class="collection">
+    <% @projects.ineligible.each do |project| %>
+      <li class="collection-item avatar">
+        <span class="title"><b>Project Name:</b> <%= project.name%></span>
+        <p><b>Group:</b> <%= project.group_members %></p>
+        <p><b>Mod:</b> <%= project.project_type %></p>
+      <% if owner_and_accepting(project.id) %>
+        <%= link_to "Edit Project", edit_project_path(project), class: "waves-effect waves-light btn turing-btn" %>
+      <% end %>
+      </li>
     <% end %>
   </ul>
 </div>
