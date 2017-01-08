@@ -41,7 +41,7 @@ describe "When a visitor tries to log in" do
       expect(current_path).to eq(projects_path)
       expect(User.last.name).to eq("First Last")
       within('.unvoted ul li:nth-of-type(1)') do
-        expect(page).to have_link('Vote')
+        expect(page).to have_link('Rate')
         expect(page).to_not have_content('Edit')
       end
        within('nav') do
