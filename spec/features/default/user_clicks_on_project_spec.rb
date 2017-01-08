@@ -9,7 +9,7 @@ describe 'When a user clicks on a project name' do
 
     visit projects_path
 
-    click_on "Vote"
+    click_on "Rate"
 
     expect(current_path).to eq(new_project_vote_path(project))
   end

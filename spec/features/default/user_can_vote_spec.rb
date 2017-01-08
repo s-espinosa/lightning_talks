@@ -17,7 +17,7 @@ describe "When a user visits a project vote page" do
     within(".unvoted") do
       expect(page).to have_content(demo.projects[0].name)
       expect(page).to have_content(demo.projects[1].name)
-      click_link("Vote", href: new_project_vote_path(demo.projects[0]))
+      click_link("Rate", href: new_project_vote_path(demo.projects[0]))
     end
 
     all('div.select-wrapper')[0].click
