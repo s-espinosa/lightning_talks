@@ -1,6 +1,6 @@
 <div class="active-demo-night">
   <h2>Active Demo Night</h2>
-  <%= link_to('Create New Demo Night', new_admin_demo_night_path) if @demo_nights.currents.count == 0 %>
+  <%= link_to('Create New Demo Night', new_admin_demo_night_path, class: "btn turing-btn waves-light waves-effect") if @demo_nights.currents.count == 0 %>
   <div class="row">
     <% @demo_nights.currents.each do |dn| %>
       <div class="col s12 m6">
