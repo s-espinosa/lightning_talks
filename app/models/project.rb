@@ -29,11 +29,17 @@ class Project < ApplicationRecord
 
   def self.unvoted_by_user(user_id)
     projects = Vote.where(user_id: user_id).pluck(:project_id)
-    where.not(id: projects)
+    eligible = ["BE Mod 3", "FE Mod 3", "BE Mod 4", "FE Mod 4"]
+    where.not(id: projects).where(project_type: eligible)
   end
 
   def self.voted_by_user(user_id)
     joins(:votes).where("votes.user_id = #{user_id}")
+  end
+
+  def self.ineligible
+    eligible = ["BE Mod 3", "FE Mod 3", "BE Mod 4", "FE Mod 4"]
+    where.not(project_type: eligible)
   end
 
   def self.current_projects
