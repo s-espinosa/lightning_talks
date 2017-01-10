@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :owner_and_accepting
   helper_method :current_admin?
 
+  force_ssl if Rails.env.production?
+
   private
 
   def current_admin?
