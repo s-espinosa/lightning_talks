@@ -46,7 +46,15 @@ and (max-width: 1024px) {
   background-color: $turing-blue;
 }
 
-i.material-icons.finals {
-  font-size: 12px;
-  color: red;
+i.material-icons {
+  &.finals-no {
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+  }
+  &.finals-yes {
+    font-size: 12px;
+    font-weight: bold;
+    color: green;
+  }
 }
