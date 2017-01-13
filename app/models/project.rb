@@ -8,20 +8,20 @@ class Project < ApplicationRecord
   validates_presence_of :name
 
   def average_representation
-    votes.average(:representation)
+    votes.average(:representation).round(2) if votes.count != 0
   end
 
   def average_challenge
-    votes.average(:challenge)
+    votes.average(:challenge).round(2) if votes.count != 0
   end
 
   def average_wow
-    votes.average(:wow)
+    votes.average(:wow).round(2) if votes.count != 0
   end
 
   def average_total
     if votes.count != 0
-      (votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count.to_f
+      ((votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count.to_f).round(2)
     else
       0
     end
