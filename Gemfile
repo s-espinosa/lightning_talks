@@ -21,6 +21,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'table_print'
+  gem 'awesome_print'
 end
 
 group :test do
