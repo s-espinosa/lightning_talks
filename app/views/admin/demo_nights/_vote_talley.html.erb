@@ -22,13 +22,13 @@
       <td><%= project.average_challenge %></td>
       <td><%= project.average_wow %></td>
       <td><%= project.average_total %></td>
-      <td><i class="material-icons finals">
+      <td>
         <% if project.final_confirmation %>
-          done
+          <i class="material-icons finals-yes">done</i>
         <% else %>
-          not_interested
+          <i class="material-icons finals-no">not_interested</i>
         <% end %>
-      </i></td>
+      </td>
       <td>
         <%= link_to "Edit", edit_admin_project_path(project), class: 'btn turing-btn' %>
         <%= button_to "Delete", admin_project_path(:id => project.id), :method => :delete, data: { confirm: "Are you sure?" },  class: 'btn turing-btn' %>
