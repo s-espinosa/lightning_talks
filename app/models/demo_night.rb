@@ -26,6 +26,6 @@ class DemoNight < ApplicationRecord
   end
 
   def self.top(number)
-    current.projects.take(number)
+    current.sorted_projects.take(number)
   end
 end
