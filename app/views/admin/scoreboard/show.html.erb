@@ -1,15 +1,4 @@
-
-<%= @demo_night.name %>
+<h1 class="page-title center-align"><%= @demo_night.name %><br />Live Scoreboard</h1>
 <div id="main-scoreboard">
-  <% @demo_night.projects.each_with_index do |project, index| %>
-  <div id="name">
-    <%= index + 1 %>. Name: <b><%= project.name %></b>
-  </div>
-  <div id="number_of_votes">
-    Number of Votes: <%= project.number_of_votes %>
-  </div>
-  <div id="average_total">
-    Score: <%= project.average_total %>
-  </div>
-  <% end %>
+  <%= render partial: "projects", locals: { projects: DemoNight.top(5)} %>
 </div>

@@ -25,7 +25,7 @@ class DemoNight < ApplicationRecord
     projects.sort_by { |p| p.average_total }.reverse
   end
 
-  def self.top_five
-    self.current.projects.take(5)
+  def self.top(number)
+    current.projects.take(number)
   end
 end

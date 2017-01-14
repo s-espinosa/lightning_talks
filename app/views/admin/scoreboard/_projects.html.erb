@@ -1,13 +1,17 @@
 <div id="main-scoreboard">
-  <% projects.each_with_index do |project, index| %>
-  <div id="name">
-    <%= index + 1 %>. Name: <b><%= project.name %></b>
+  <div class="row">
+    <div class="col s12 l4 offset-l4">
+      <ul class="collection">
+        <% projects.each_with_index do |project, index| %>
+        <li class="collection-item avatar">
+          <i class="material-icons circle turing-blue">filter_<%= index+1 %></i>
+          <span class="title">Project Name: <b><%= project.name %></b></span>
+          <p>Type: <b><%= project.project_type %></b></p>
+          <p>Number of Votes: <b><%= project.number_of_votes %></b></p>
+          <p>Score: <b><%= project.average_total %></b></p>
+        </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-  <div id="number_of_votes">
-    Number of Votes: <%= project.number_of_votes %>
-  </div>
-  <div id="average_total">
-    Score: <%= project.average_total %>
-  </div>
-  <% end %>
 </div>
