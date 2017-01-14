@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/no-demo-night', to: "home#no_demo_night"
 
   resources :projects, only: [:new, :create, :index, :show, :edit, :update] do
-    resources :votes, only: [:new, :create]
+    resources :votes, only: [:new, :create, :edit, :update]
   end
 
   resources :demo_nights, only: [:show] do
