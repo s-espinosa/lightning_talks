@@ -8,7 +8,7 @@ describe "when an admin logs in" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     visit admin_demo_nights_path
     within('.closed-demo-nights') do
-      expect(page).to have_content(demo.name)
+      expect(page).to have_content(demo.name.humanize)
     end
 
     within('.active-demo-night') do

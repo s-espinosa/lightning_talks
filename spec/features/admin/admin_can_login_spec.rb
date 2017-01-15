@@ -16,7 +16,7 @@ describe "When an admin tries to log in" do
         expect(page).to have_content("New Project")
       end
 
-      expect(page).to have_content(project1.demo_night.name)
+      expect(page).to have_content(project1.demo_night.name.humanize)
     end
   end
 

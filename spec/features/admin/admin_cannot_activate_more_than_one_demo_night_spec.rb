@@ -15,7 +15,7 @@ describe "on updating status of demo night", js: true  do
     end
     expect(page).to have_content("There can only be 1 active demo night at a time")
     within('.closed-demo-nights') do
-      expect(page).to have_content(@closed.name)
+      expect(page).to have_content(@closed.name.humanize)
     end
   end
 
@@ -28,7 +28,7 @@ describe "on updating status of demo night", js: true  do
     @active.reload
     expect(page).to have_content("#{@active.name} now #{@active.status.humanize.downcase}")
     within('.closed-demo-nights') do
-      expect(page).to have_content(@active.name)
+      expect(page).to have_content(@active.name.humanize)
     end
   end
 
@@ -38,7 +38,7 @@ describe "on updating status of demo night", js: true  do
 
     expect(page).to have_content("There can only be 1 active demo night at a time")
     within('.closed-demo-nights') do
-      expect(page).to have_content(@closed.name)
+      expect(page).to have_content(@closed.name.humanize)
     end
   end
 
@@ -49,7 +49,7 @@ describe "on updating status of demo night", js: true  do
     @active.reload
     expect(page).to have_content("#{@active.name} now #{@active.status.humanize.downcase}")
     within('.closed-demo-nights') do
-      expect(page).to have_content(@active.name)
+      expect(page).to have_content(@active.name.humanize)
     end
   end
 end
