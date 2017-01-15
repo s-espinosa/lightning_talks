@@ -1,0 +1,21 @@
+<% if current_admin? %>
+  <li><%= link_to "Demo Nights", admin_demo_nights_path %></li>
+  <% if !current_demo_night? %>
+    <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
+  <% else %>
+    <li><%= link_to "Current Projects", admin_demo_night_path(DemoNight.current) %></li>
+    <li><%= link_to "Live Scoreboard", admin_scoreboard_path %></li>
+    <li><%= link_to "Rate Projects", projects_path %></li>
+  <% end %>
+  <li><%= link_to "New Project", new_project_path %></li>
+  <li><%= link_to "Log Out", logout_path %></li>
+<% end %>
+<% if current_user && !current_admin? %>
+  <% if accepting_submissions? %>
+    <li><%= link_to "New Project", new_project_path %></li>
+  <% end %>
+  <% if current_demo_night? %>
+    <li><%= link_to "Current Projects", projects_path %></li>
+  <% end %>
+  <li><%= link_to "Log Out", logout_path %></li>
+<% end %>

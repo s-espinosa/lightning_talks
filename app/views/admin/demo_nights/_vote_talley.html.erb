@@ -1,4 +1,4 @@
-<table class="responsive-table centered">
+<table class="responsive-table centered vote-talley">
   <thead>
     <tr>
       <th>Project Name</th>
@@ -8,28 +8,28 @@
       <th>Challenge</th>
       <th>Wow</th>
       <th>Total Score</th>
-      <th>Demo Night Finals</th>
+      <th>Finals?</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% projects.each do |project| %>
     <tr>
-      <td><%= project.name %></td>
-      <td><%= project.group_members %></td>
-      <td><%= project.project_type %></td>
-      <td><%= project.average_representation %></td>
-      <td><%= project.average_challenge %></td>
-      <td><%= project.average_wow %></td>
-      <td><%= project.average_total %></td>
-      <td>
+      <td class="reg"><%= project.name %></td>
+      <td class="reg"><%= project.group_members %></td>
+      <td class="reg"><%= project.project_type %></td>
+      <td class="small"><%= project.average_representation %></td>
+      <td class="small"><%= project.average_challenge %></td>
+      <td class="small"><%= project.average_wow %></td>
+      <td class="small"><%= project.average_total %></td>
+      <td class="small">
         <% if project.final_confirmation %>
           <i class="material-icons finals-yes">done</i>
         <% else %>
           <i class="material-icons finals-no">not_interested</i>
         <% end %>
       </td>
-      <td>
+      <td class="reg">
         <%= link_to "Edit", edit_admin_project_path(project), class: 'btn turing-btn' %>
         <%= button_to "Delete", admin_project_path(:id => project.id), :method => :delete, data: { confirm: "Are you sure?" },  class: 'btn turing-btn' %>
       </td>
