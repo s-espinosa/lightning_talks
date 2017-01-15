@@ -12,6 +12,9 @@ describe "When an admin visits the admin demo night show path" do
     project2.votes.create(user: user, representation: 2, challenge: 2, wow: 2)
 
     visit admin_demo_night_path(demo_night)
+    within('.card-content.white-text') do
+      expect(page).to have_content("Number of Projects: 2")
+    end
     within('.projects > table > tbody') do
       within('tr:nth-child(1)') do
         expect(page).to have_content(project1.name)

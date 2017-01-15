@@ -28,4 +28,8 @@ class DemoNight < ApplicationRecord
   def self.top(number)
     current.sorted_projects.take(number)
   end
+
+  def number_of_projects
+    projects.count
+  end
 end
