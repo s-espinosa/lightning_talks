@@ -1,0 +1,13 @@
+<div id="main-scoreboard">
+  <% projects.each_with_index do |project, index| %>
+  <div id="name">
+    <%= index + 1 %>. Name: <b><%= project.name %></b>
+  </div>
+  <div id="number_of_votes">
+    Number of Votes: <%= project.number_of_votes %>
+  </div>
+  <div id="average_total">
+    Score: <%= project.average_total %>
+  </div>
+  <% end %>
+</div>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
+    get '/scoreboard', to: 'scoreboard#show'
     resources :demo_nights, only: [:index, :show, :new, :create, :update]
     resources :projects, only: [:index, :edit, :update, :show, :destroy]
   end
@@ -20,4 +21,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/login', to: 'sessions#new'
   get "/auth/:provider/callback", to: "sessions#create"
+
+  mount ActionCable.server, at: '/cable'
 end

@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem "omniauth-github", '1.1.1'
 gem 'figaro'
 gem 'materialize-sass'
+gem 'redis'
 
 group :development, :test do
   gem 'pry'

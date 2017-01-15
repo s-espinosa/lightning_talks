@@ -7,6 +7,10 @@ class Project < ApplicationRecord
 
   validates_presence_of :name
 
+  def number_of_votes
+    votes.count
+  end
+
   def average_representation
     votes.average(:representation).round(3) if votes.count != 0
   end
