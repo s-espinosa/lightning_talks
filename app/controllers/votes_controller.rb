@@ -19,6 +19,18 @@ class VotesController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:project_id])
+    @vote = Vote.find(params[:id])
+  end
+
+  def update
+    vote = Vote.find(params[:id])
+    project = Project.find(params[:project_id])
+    vote.update(vote_params)
+    redirect_to demo_night_projects_path(project.demo_night_id)
+  end
+
   private
 
   def vote_params

@@ -1,4 +1,5 @@
 $turing-blue: #05C2D1;
+
 body {
   background-color: #FFF;
   color: #000;
@@ -57,4 +58,10 @@ i.material-icons {
     font-weight: bold;
     color: green;
   }
+}
+
+.collection .collection-item.avatar i.circle.turing-blue {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  background-color: $turing-blue;
 }

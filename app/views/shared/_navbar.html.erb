@@ -10,6 +10,7 @@
             <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
           <% else %>
             <li><%= link_to "Current Projects", admin_demo_night_path(DemoNight.current) %></li>
+            <li><%= link_to "Live Scoreboard", admin_scoreboard_path %></li>
           <% end %>
           <li><%= link_to "New Project", new_project_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>
@@ -31,6 +32,7 @@
             <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
           <% else %>
             <li><%= link_to "Current Projects", admin_demo_night_path(DemoNight.current) %></li>
+            <li><%= link_to "Live Scoreboard", admin_scoreboard_path %></li>
           <% end %>
           <li><%= link_to "New Project", new_project_path %></li>
           <li><%= link_to "Log Out", logout_path %></li>

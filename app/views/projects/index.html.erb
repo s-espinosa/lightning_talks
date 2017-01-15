@@ -27,6 +27,9 @@
         <span class="title"><b>Project Name:</b> <%= project.name%></span>
         <p><b>Group:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
+        <% if voting? %>
+          <%= link_to "Edit Rating", edit_project_vote_path(id: project.votes.where(user_id: current_user.id).first.id, project_id: project.id), class: "waves-effect waves-light btn turing-btn" %>
+        <% end %>
       </li>
     <% end %>
   </ul>
