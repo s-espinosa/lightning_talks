@@ -10,10 +10,10 @@ describe 'when an admin visits the demo night index' do
     visit admin_demo_nights_path
 
     within('.active-demo-night') do
-      expect(page).to have_content(demo2.name)
+      expect(page).to have_content(demo2.name.humanize)
     end
     within('.closed-demo-nights') do
-      expect(page).to have_content(demo1.name)
+      expect(page).to have_content(demo1.name.humanize)
     end
   end
 end

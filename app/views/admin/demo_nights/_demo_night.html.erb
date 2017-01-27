@@ -1,0 +1,21 @@
+<div class="col s12 m6">
+  <div class="card grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title"><%= demo_night.name.humanize %></span>
+      <p>Number of Projects: <%= demo_night.number_of_projects %></p>
+      <p>Current Status: <%= demo_night.status.humanize %></p>
+    </div>
+    <div class="card-action">
+      <p class="white-text">Change status:</p>
+      <% if demo_night.status != "accepting_submissions" %>
+      <%= link_to "accept submissions", admin_demo_night_path(demo_night, demo_night: {status: :accepting_submissions}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+      <% end %>
+      <% if demo_night.status != "voting" %>
+      <%= link_to "open voting", admin_demo_night_path(demo_night, demo_night: {status: :voting}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+      <% end %>
+      <% if demo_night.status != "closed" %>
+      <%= link_to "closed", admin_demo_night_path(demo_night, demo_night: {status: :closed}), method: :patch, class: "waves-effect waves-light btn turing-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
