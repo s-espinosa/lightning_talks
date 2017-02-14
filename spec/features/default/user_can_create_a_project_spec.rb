@@ -22,7 +22,6 @@ describe 'When a user visits the new project path', js: true do
     within('.unvoted') do
       expect(page).to have_content("Witty Name")
       expect(page).to have_content("Sharon Jones")
-      expect(page).to have_content("Please put me last")
       expect(page).to have_link("Edit Project", href: edit_project_path(new_project))
       expect(page).to_not have_link("Edit Project", href: edit_project_path(existing_project))
       expect(page).to_not have_link("Vote")
