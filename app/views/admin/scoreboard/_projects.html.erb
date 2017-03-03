@@ -4,7 +4,11 @@
       <ul class="collection">
         <% projects.each_with_index do |project, index| %>
         <li class="collection-item avatar">
-          <i class="material-icons circle turing-blue">filter_<%= index+1 %></i>
+          <% if index < 9 %>
+            <i class="material-icons circle turing-blue">filter_<%= index+1 %></i>
+          <% else %>
+            <i class="material-icons circle turing-blue">filter_9_plus</i>
+          <% end %>
           <span class="title">Project Name: <b><%= project.name %></b></span>
           <p>Type: <b><%= project.project_type %></b></p>
           <p>Number of Votes: <b><%= project.number_of_votes %></b></p>

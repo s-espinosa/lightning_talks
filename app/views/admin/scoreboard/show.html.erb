@@ -1,4 +1,4 @@
 <h1 class="page-title center-align"><%= @demo_night.name %><br />Live Scoreboard</h1>
 <div id="main-scoreboard">
-  <%= render partial: "projects", locals: { projects: DemoNight.top(5)} %>
+  <%= render partial: "projects", locals: { projects: DemoNight.current.sorted_projects } %>
 </div>
