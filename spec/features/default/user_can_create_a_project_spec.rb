@@ -9,6 +9,7 @@ describe 'When a user visits the new project path', js: true do
     visit new_project_path
     fill_in "project[group_members]", with: "Sharon Jones"
     fill_in "project[name]", with: "Witty Name"
+    fill_in "project[note]", with: "Please put me last"
     find('div.select-wrapper input').click
     find('div.select-wrapper li', text: 'BE Mod 3').click
     find('label', text: "Are you able to present at the Demo Night Finals on #{DemoNight.last.final_date}?").click
