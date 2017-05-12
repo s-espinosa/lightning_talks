@@ -1,5 +1,5 @@
 namespace :demonight do
-  desc "Nightly closes all open demonights"
+  desc "Closes all open demonights"
   task close: :environment do
     DemoNight.update_all status: "closed"
   end
