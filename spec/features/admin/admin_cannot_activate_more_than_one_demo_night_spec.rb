@@ -22,7 +22,7 @@ describe "on updating status of demo night", js: true  do
   it "allows active demo night to be closed - from index" do
     visit admin_demo_nights_path
     within('.active-demo-night') do
-      click_link("closed")
+      click_link("close")
     end
 
     @active.reload
@@ -44,7 +44,7 @@ describe "on updating status of demo night", js: true  do
 
   it "allows active demo night to be closed - from show" do
     visit admin_demo_night_path(@active)
-    click_link("closed")
+    click_link("close")
 
     @active.reload
     expect(page).to have_content("#{@active.name} now #{@active.status.humanize.downcase}")
