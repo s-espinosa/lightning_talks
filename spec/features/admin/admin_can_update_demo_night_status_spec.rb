@@ -17,7 +17,7 @@ describe "When an admin views the demo night index", js: true  do
     expect(page).to have_content("#{@active.name} now voting")
     within('.active-demo-night') do
       expect(page).to_not have_link('open voting')
-      expect(page).to have_link('closed')
+      expect(page).to have_link('close')
     end
     @active.reload
     expect(@active.status).to eq("voting")
