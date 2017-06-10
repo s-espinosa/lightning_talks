@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#show'
 
-  get '/no-demo-night', to: "home#no_demo_night"
+  get '/no-demo-night', to: 'home#no_demo_night'
 
   resources :projects, only: [:new, :create, :index, :show, :edit, :update] do
     resources :votes, only: [:new, :create, :edit, :update]
@@ -20,7 +20,8 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/login', to: 'sessions#new'
-  get "/auth/:provider/callback", to: "sessions#create"
+  get '/auth/:provider/callback', to: 'sessions#create'
 
+  get '/clever_students', to: 'pages#clever', as: 'clever'
   mount ActionCable.server, at: '/cable'
 end
