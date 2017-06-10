@@ -31,7 +31,9 @@
             <li><%= link_to "Current Projects", projects_path %></li>
           <% end %>
         <% end %>
-        <li><%= link_to "Log Out", logout_path %></li>
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% end %>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <%= render partial: "shared/mobile_nav_items" %>
