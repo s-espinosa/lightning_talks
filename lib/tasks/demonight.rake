@@ -1,6 +1,6 @@
 namespace :demonight do
-  desc "Closes all open demonights"
+  desc "Closes all voting demonights"
   task close: :environment do
-    DemoNight.update_all status: "closed"
+    DemoNight.voting.update_all status: "closed"
   end
 end
