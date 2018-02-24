@@ -35,7 +35,7 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:representation, :challenge, :wow)
+    params.require(:vote).permit(:presentation, :content, :surprise)
   end
 
   def check_eligibility(project)

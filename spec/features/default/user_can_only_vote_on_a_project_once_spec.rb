@@ -14,9 +14,9 @@ describe "When a user votes on a project" do
     end
 
     click_link('Rate', href: new_project_vote_path(project1))
-    select "3", from: "vote[representation]"
-    select "3", from: "vote[challenge]"
-    select "3", from: "vote[wow]"
+    select "3", from: "vote[presentation]"
+    select "3", from: "vote[content]"
+    select "3", from: "vote[surprise]"
     click_button("Submit")
     expect(current_path).to eq("/lightning_talks/#{lightning_talk.id}/projects")
     within ('.unvoted') do

@@ -6,7 +6,7 @@ describe "When a user visits the project index" do
     @lightning_talk = create(:lightning_talk_with_projects)
     @lightning_talk.voting!
     project1, project2 = @lightning_talk.projects
-    user1.votes.create(project: project1, representation: 1, challenge: 1, wow: 1)
+    user1.votes.create(project: project1, presentation: 1, content: 1, surprise: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
   end
 

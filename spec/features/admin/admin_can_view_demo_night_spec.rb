@@ -7,9 +7,9 @@ describe "When an admin visits the admin lightning talk show path" do
     lightning_talk = create(:lightning_talk_with_projects)
     project1, project2 = lightning_talk.projects
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-    project1.votes.create(user: user, representation: 5, challenge: 5, wow: 5)
-    project1.votes.create(user: user, representation: 3, challenge: 3, wow: 3)
-    project2.votes.create(user: user, representation: 2, challenge: 2, wow: 2)
+    project1.votes.create(user: user, presentation: 5, content: 5, surprise: 5)
+    project1.votes.create(user: user, presentation: 3, content: 3, surprise: 3)
+    project2.votes.create(user: user, presentation: 2, content: 2, surprise: 2)
 
     visit admin_lightning_talk_path(lightning_talk)
     within('.card-content.white-text') do
