@@ -3,24 +3,24 @@ require 'rails_helper'
 RSpec.describe LightningTalk, type: :model do
   let(:lightning_talk) { create(:lightning_talk) }
 
-  context "with 'accepting' demo night" do
-    it "returns true for active demo night" do
+  context "with 'accepting' lightning talk" do
+    it "returns true for active lightning talk" do
       expect(lightning_talk.active?).to eq(true)
     end
   end
 
-  context "with 'accepting' demo night" do
+  context "with 'accepting' lightning talk" do
     before { lightning_talk.update(status: "voting") }
 
-    it "returns true for active demo night" do
+    it "returns true for active lightning talk" do
       expect(lightning_talk.active?).to eq(true)
     end
   end
 
-  context "with closed demo night" do
+  context "with closed lightning talk" do
     before { lightning_talk.update(status: "closed") }
 
-    it "returns false for inactive demo night" do
+    it "returns false for inactive lightning talk" do
       expect(lightning_talk.active?).to eq(false)
     end
   end

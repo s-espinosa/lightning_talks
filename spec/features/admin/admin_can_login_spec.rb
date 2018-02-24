@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "When an admin tries to log in" do
-  context "with valid credentials and a current demo night" do
+  context "with valid credentials and a current lightning talk" do
     it "they can log in and see projects" do
       create(:admin, uid: 123456)
       project1 = create(:project)
@@ -20,8 +20,8 @@ describe "When an admin tries to log in" do
     end
   end
 
-  context "with valid credentials and a current demo night" do
-    it "they can log in and see a button to create a new demo night" do
+  context "with valid credentials and a current lightning talk" do
+    it "they can log in and see a button to create a new lightning talk" do
       create(:admin, uid: 123456)
       visit '/'
       expect(current_path).to eq('/login')

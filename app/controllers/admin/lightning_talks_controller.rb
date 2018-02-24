@@ -47,7 +47,7 @@ class Admin::LightningTalksController < Admin::BaseController
 
   def check_active_lightning_talks
     if LightningTalk.all.currents.any?
-      flash[:danger] = "There can only be 1 active demo night at a time."
+      flash[:danger] = "There can only be 1 active lightning talk at a time."
       redirect_to admin_lightning_talks_path
     end
   end
@@ -55,7 +55,7 @@ class Admin::LightningTalksController < Admin::BaseController
   def check_active_for_update
     if LightningTalk.currents.any?
       if LightningTalk.current.id != params[:id].to_i
-        flash[:danger] = "There can only be 1 active demo night at a time."
+        flash[:danger] = "There can only be 1 active lightning talk at a time."
         redirect_to admin_lightning_talks_path
       end
     end

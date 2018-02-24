@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "when an admin logs in" do
-  it "they can create a new demo night" do
+  it "they can create a new lightning talk" do
     admin = create(:admin, uid: 98765)
     demo  = create(:lightning_talk, status: 'closed')
 

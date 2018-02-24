@@ -10,7 +10,7 @@
 
 <div class="closed-lightning-talks">
   <h2>Closed Lightning Talks</h2>
-  <%= "No inactive demo nights" if @lightning_talks.inactives.count == 0 %>
+  <%= "No inactive lightning talks" if @lightning_talks.inactives.count == 0 %>
   <div class="row">
     <% @lightning_talks.inactives.each do |lightning_talk| %>
       <%= render partial: "lightning_talk", locals: { lightning_talk: lightning_talk } %>

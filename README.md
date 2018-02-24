@@ -1,6 +1,6 @@
 # LIGHTNING TALK!
 
-A basic voting application for competitions currently designed for the [Turing School of Software & Design](https://www.turing.io/) student demo night competition.
+A basic voting application for competitions currently designed for the [Turing School of Software & Design](https://www.turing.io/) student lightning talk competition.
 
 This is a Ruby on Rails application using GitHub authentication. [Figaro](https://github.com/laserlemon/figaro) has been used to manage environment variables.
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'when an admin visits the demo night index' do
-  it 'they see a list of active and closed demo nights' do
+describe 'when an admin visits the lightning talk index' do
+  it 'they see a list of active and closed lightning talks' do
     admin = create(:admin, uid: 98765)
     demo1 = create(:lightning_talk, status: 'closed')
     demo2 = create(:lightning_talk)

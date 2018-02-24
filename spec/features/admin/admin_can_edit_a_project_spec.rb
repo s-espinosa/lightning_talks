@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'When an admin visits the admin demo night show path' do
+describe 'When an admin visits the admin lightning talk show path' do
   it 'they can click on a link to edit a project' do
     admin = create(:admin, uid: 123456)
     lightning_talk = create(:lightning_talk_with_projects)

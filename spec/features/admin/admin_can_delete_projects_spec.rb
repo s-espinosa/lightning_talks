@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "logged in admin" do
-  it "can delete a project from the demo nights index", js: true do
+  it "can delete a project from the lightning talks index", js: true do
     admin = create(:admin)
     lightning_talk = create(:lightning_talk_with_projects)
     project1, project2 = lightning_talk.projects

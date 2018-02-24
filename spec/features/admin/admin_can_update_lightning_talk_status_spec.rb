@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "When an admin views the demo night index", js: true  do
+describe "When an admin views the lightning talk index", js: true  do
   before do
     admin  = create(:admin)
     @active = create(:lightning_talk)
@@ -8,7 +8,7 @@ describe "When an admin views the demo night index", js: true  do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
   end
 
-  it "they can open voting on a demo night" do
+  it "they can open voting on a lightning talk" do
     visit admin_lightning_talks_path
     within('.active-lightning-talk') do
       click_link("open voting")
