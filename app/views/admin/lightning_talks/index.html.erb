@@ -1,0 +1,19 @@
+<div class="active-lightning-talk">
+  <h2>Active Lightning Talk</h2>
+  <%= link_to('Create New Lightning Talk', new_admin_lightning_talk_path, class: "btn turing-btn waves-light waves-effect") if @lightning_talks.currents.count == 0 %>
+  <div class="row">
+    <% @lightning_talks.currents.each do |lightning_talk| %>
+      <%= render partial: "lightning_talk", locals: { lightning_talk: lightning_talk } %>
+    <% end %>
+  </div>
+</div>
+
+<div class="closed-lightning-talks">
+  <h2>Closed Lightning Talks</h2>
+  <%= "No inactive demo nights" if @lightning_talks.inactives.count == 0 %>
+  <div class="row">
+    <% @lightning_talks.inactives.each do |lightning_talk| %>
+      <%= render partial: "lightning_talk", locals: { lightning_talk: lightning_talk } %>
+    <% end %>
+  </div>
+</div>

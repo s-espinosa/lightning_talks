@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-describe 'admin visits demo-night show path' do
-  context 'with existing demonight and voted projects' do
+describe 'admin visits lightning-talk show path' do
+  context 'with existing lightningtalk and voted projects' do
     scenario 'they see the projects in order from most votes to least votes' do
       user  = create(:user)
       admin = create(:admin, uid: 123456)
-      demo_night = create(:demo_night_with_projects)
-      project1, project2 = demo_night.projects
+      lightning_talk = create(:lightning_talk_with_projects)
+      project1, project2 = lightning_talk.projects
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       project1.votes.create(user: user, representation: 3, challenge: 3, wow: 3)
       project2.votes.create(user: user, representation: 5, challenge: 5, wow: 5)
 
-      visit admin_demo_night_path(demo_night)
+      visit admin_lightning_talk_path(lightning_talk)
 
       within('.projects > table > tbody') do
         within('tr:nth-child(1)') do

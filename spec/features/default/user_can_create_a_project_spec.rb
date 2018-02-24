@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'When a user visits the new project path', js: true do
   it 'they can create a new project' do
-    create(:demo_night_with_projects)
+    create(:lightning_talk_with_projects)
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -12,7 +12,7 @@ describe 'When a user visits the new project path', js: true do
     fill_in "project[note]", with: "Please put me last"
     find('div.select-wrapper input').click
     find('div.select-wrapper li', text: 'BE Mod 3').click
-    find('label', text: "Are you able to present at the Demo Night Finals on #{DemoNight.last.final_date}?").click
+    find('label', text: "Are you able to present at the Lightning Talk Finals on #{LightningTalk.last.final_date}?").click
     click_on "Submit"
 
     new_project      = Project.last

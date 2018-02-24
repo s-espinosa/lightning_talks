@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   has_many :voters, through: :votes, source: :user
 
   belongs_to :owner, class_name: "User", foreign_key: 'user_id'
-  belongs_to :demo_night
+  belongs_to :lightning_talk
 
   validates_presence_of :name
 
@@ -47,9 +47,9 @@ class Project < ApplicationRecord
   end
 
   def self.current_projects
-    current_demo_night = DemoNight.currents.first
-    if current_demo_night
-      where(demo_night_id: current_demo_night.id)
+    current_lightning_talk = LightningTalk.currents.first
+    if current_lightning_talk
+      where(lightning_talk_id: current_lightning_talk.id)
     else
       []
     end

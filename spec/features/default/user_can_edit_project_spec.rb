@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'A user edits a project' do
   before do
-    create(:demo_night_with_projects)
+    create(:lightning_talk_with_projects)
     @user      = User.last
     @project   = Project.last
-    @demonight = DemoNight.last
+    @lightningtalk = LightningTalk.last
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
@@ -37,7 +37,7 @@ describe 'A user edits a project' do
   end
 
   it 'does not let a user edit a project if demo night is voting or closed' do
-    @demonight.update(status: "voting")
+    @lightningtalk.update(status: "voting")
     visit projects_path
     expect(page).to_not have_link("Edit Project")
   end

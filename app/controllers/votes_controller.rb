@@ -13,7 +13,7 @@ class VotesController < ApplicationController
     @vote.user = current_user
     if @vote.save
       flash[:success] = "Rating received!"
-      redirect_to demo_night_projects_path(@project.demo_night_id)
+      redirect_to lightning_talk_projects_path(@project.lightning_talk_id)
     else
       flash[:error] = "Rating not registered. Try again."
       redirect_to new_project_vote_path(@project)
@@ -29,7 +29,7 @@ class VotesController < ApplicationController
     vote = Vote.find(params[:id])
     project = Project.find(params[:project_id])
     vote.update(vote_params)
-    redirect_to demo_night_projects_path(project.demo_night_id)
+    redirect_to lightning_talk_projects_path(project.lightning_talk_id)
   end
 
   private
@@ -43,9 +43,9 @@ class VotesController < ApplicationController
   end
 
   def check_voting
-    unless DemoNight.currents.first.voting?
-      flash[:error] = "Rating not yet started for the current Demo Night"
-      redirect_to root_path unless DemoNight.currents.first.voting?
+    unless LightningTalk.currents.first.voting?
+      flash[:error] = "Rating not yet started for the current Lightning Talk"
+      redirect_to root_path unless LightningTalk.currents.first.voting?
     end
   end
 end

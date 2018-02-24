@@ -3,9 +3,9 @@ require "rails_helper"
 describe "When a user visits the project index" do
   before do
     user1 = create(:user)
-    @demo_night = create(:demo_night_with_projects)
-    @demo_night.voting!
-    project1, project2 = @demo_night.projects
+    @lightning_talk = create(:lightning_talk_with_projects)
+    @lightning_talk.voting!
+    project1, project2 = @lightning_talk.projects
     user1.votes.create(project: project1, representation: 1, challenge: 1, wow: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
   end
@@ -25,7 +25,7 @@ describe "When a user visits the project index" do
     find('div.select-wrapper li', text: '3').click
     click_on "Submit"
 
-    expect(current_path).to eq(demo_night_projects_path(@demo_night))
+    expect(current_path).to eq(lightning_talk_projects_path(@lightning_talk))
 
   end
 end

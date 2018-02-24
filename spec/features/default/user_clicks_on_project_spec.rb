@@ -4,7 +4,7 @@ describe 'When a user clicks on a project name' do
   it 'they are taken to vote on that project' do
     user = create(:user)
     project = create(:project)
-    project.demo_night.voting!
+    project.lightning_talk.voting!
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit projects_path

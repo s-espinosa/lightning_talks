@@ -1,4 +1,4 @@
-class DemoNight < ApplicationRecord
+class LightningTalk < ApplicationRecord
   has_many :projects
   has_many :votes, through: :projects
   validates :final_date, presence: true

@@ -1,10 +1,10 @@
 <ul id="dropdown1" class="dropdown-content">
   <% if current_admin? %>
-    <li><%= link_to "Demo Nights", admin_demo_nights_path %></li>
-    <% if !current_demo_night? %>
-      <li><%= link_to "New Demo Night", new_admin_demo_night_path %></li>
+    <li><%= link_to "Lightning Talks", admin_lightning_talks_path %></li>
+    <% if !current_lightning_talk? %>
+      <li><%= link_to "New Lightning Talk", new_admin_lightning_talk_path %></li>
     <% else %>
-      <li><%= link_to "Current Projects", admin_demo_night_path(DemoNight.current) %></li>
+      <li><%= link_to "Current Projects", admin_lightning_talk_path(LightningTalk.current) %></li>
       <li><%= link_to "Live Scoreboard", admin_scoreboard_path %></li>
       <li><%= link_to "Rate Projects", projects_path %></li>
     <% end %>
@@ -14,7 +14,7 @@
 <nav>
   <div class="nav-wrapper">
     <div class="container">
-      <a href="/" class="brand-logo">DEMO NIGHT!</a>
+      <a href="/" class="brand-logo">LIGHTNING TALK!</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <% if current_admin? %>
@@ -27,7 +27,7 @@
           <% if accepting_submissions? %>
             <li><%= link_to "New Project", new_project_path %></li>
           <% end %>
-          <% if current_demo_night? %>
+          <% if current_lightning_talk? %>
             <li><%= link_to "Current Projects", projects_path %></li>
           <% end %>
         <% end %>

@@ -3,21 +3,21 @@ require "rails_helper"
 describe "when an admin creates a demo night", js: true do
 
   before do
-    @demo_night = create(:demo_night)
+    @lightning_talk = create(:lightning_talk)
     admin = create(:admin)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
   end
 
   it "they are redirected to an index page if another demo night is active" do
-    visit new_admin_demo_night_path
+    visit new_admin_lightning_talk_path
 
-    fill_in "Name", with: "Demo Night - 1602"
-    click_button "Create Demo Night!"
+    fill_in "Name", with: "Lightning Talk - 1602"
+    click_button "Create Lightning Talk!"
 
-    expect(current_path).to eq(admin_demo_nights_path)
+    expect(current_path).to eq(admin_lightning_talks_path)
     expect(page).to have_content("There can only be 1 active demo night at a time.")
-    within('.active-demo-night') do
-      expect(page).to have_content(@demo_night.name.humanize)
+    within('.active-lightning-talk') do
+      expect(page).to have_content(@lightning_talk.name.humanize)
     end
 
   end

@@ -21,20 +21,20 @@ FactoryGirl.define do
     end
     project_type "BE Mod 3"
     final_confirmation true
-    demo_night
+    lightning_talk
     owner
   end
 
-  factory :demo_night do
+  factory :lightning_talk do
     sequence :name do |n|
       "DemoName #{n}"
     end
     status 0
     final_date '2017/01/23'
 
-    factory :demo_night_with_projects do
-      after(:create) do |demo_night, evaluator|
-        create_list(:project, 2, demo_night: demo_night)
+    factory :lightning_talk_with_projects do
+      after(:create) do |lightning_talk, evaluator|
+        create_list(:project, 2, lightning_talk: lightning_talk)
       end
     end
   end

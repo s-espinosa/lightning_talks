@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
 
   def new
-    if DemoNight.current
-      @project = DemoNight.current.projects.new
+    if LightningTalk.current
+      @project = LightningTalk.current.projects.new
       @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4", "Posse"]
     else
       flash[:error] = "There is no active demo night yet. BRB."
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = DemoNight.current.projects.new(project_params)
+    @project = LightningTalk.current.projects.new(project_params)
     if @project.save
       flash[:success] = "Project successfully submitted!"
       redirect_to projects_path
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = DemoNight.current.projects
+    @projects = LightningTalk.current.projects
   end
 
   def edit
@@ -47,6 +47,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation, :demo_night_id, :note).merge(user_id: current_user.id)
+    params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation, :lightning_talk_id, :note).merge(user_id: current_user.id)
   end
 end

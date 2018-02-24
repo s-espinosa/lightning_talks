@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "When a user visits a project vote page" do
   it "they can vote on that project", js: true do
     user1, user2 = create_list(:user, 2)
-    demo = create(:demo_night, status: "voting")
+    demo = create(:lightning_talk, status: "voting")
     demo.projects << create(:project, project_type: "Posse")
     demo.projects << create(:project, project_type: "BE Mod 2")
     demo.projects << create(:project, project_type: "FE Mod 2")
@@ -45,7 +45,7 @@ describe "When a user visits a project vote page" do
     find('div.select-wrapper li', text: '3').click
     click_on "Submit"
 
-    expect(current_path).to eq(demo_night_projects_path(demo))
+    expect(current_path).to eq(lightning_talk_projects_path(demo))
     within(".unvoted") do
       expect(page).to_not have_content(demo.projects[0].name)
       expect(page).to_not have_content(demo.projects[1].name)

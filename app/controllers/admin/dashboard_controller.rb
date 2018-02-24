@@ -1,6 +1,6 @@
 class Admin::DashboardController < Admin::BaseController
 
   def show
-    @demo_night = DemoNight.current
+    @lightning_talk = LightningTalk.current
   end
 end

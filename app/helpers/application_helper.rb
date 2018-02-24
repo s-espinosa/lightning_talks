@@ -1,14 +1,14 @@
 module ApplicationHelper
 
-  def current_demo_night?
-    DemoNight.current != nil
+  def current_lightning_talk?
+    LightningTalk.current != nil
   end
 
   def accepting_submissions?
-    DemoNight.current != nil && DemoNight.current.accepting_submissions?
+    LightningTalk.current != nil && LightningTalk.current.accepting_submissions?
   end
 
   def voting?
-    DemoNight.current != nil && DemoNight.current.voting?
+    LightningTalk.current != nil && LightningTalk.current.voting?
   end
 end

@@ -24,19 +24,19 @@ class ApplicationController < ActionController::Base
 
   def root_redirect
     if current_user.admin?
-      admin_demo_nights_path
-    elsif DemoNight.current && DemoNight.current.accepting_submissions?
+      admin_lightning_talks_path
+    elsif LightningTalk.current && LightningTalk.current.accepting_submissions?
       new_project_path
-    elsif DemoNight.current && DemoNight.current.voting?
+    elsif LightningTalk.current && LightningTalk.current.voting?
       projects_path
     else
-      no_demo_night_path
+      no_lightning_talk_path
     end
   end
 
   def owner_and_accepting(project_id)
     project = Project.find(project_id)
-    current_dn = DemoNight.current
-    current_dn.status == "accepting_submissions" && project.demo_night_id == current_dn.id && project.user_id == current_user.id
+    current_dn = LightningTalk.current
+    current_dn.status == "accepting_submissions" && project.lightning_talk_id == current_dn.id && project.user_id == current_user.id
   end
 end

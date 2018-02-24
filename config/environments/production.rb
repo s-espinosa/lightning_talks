@@ -37,8 +37,8 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # production
-  config.action_cable.url = 'wss://demonight.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = [ 'https://demonight.herokuapp.com', 'http://demonight.herokuapp.com' ]
+  config.action_cable.url = 'wss://lightningtalk.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [ 'https://lightningtalk.herokuapp.com', 'http://lightningtalk.herokuapp.com' ]
 
   # staging
   # config.action_cable.url = 'wss://staging-demons.herokuapp.com/cable'
@@ -59,7 +59,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "demonight_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "lightningtalk_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

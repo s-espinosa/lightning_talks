@@ -9,14 +9,14 @@ describe "When an admin tries to log in" do
       expect(current_path).to eq('/login')
       click_on "Sign in with GitHub"
 
-      expect(current_path).to eq(admin_demo_nights_path)
+      expect(current_path).to eq(admin_lightning_talks_path)
       within('.nav-wrapper') do
-        expect(page).to have_content("Demo Nights")
+        expect(page).to have_content("Lightning Talks")
         expect(page).to have_content("Current Projects")
         expect(page).to have_content("New Project")
       end
 
-      expect(page).to have_content(project1.demo_night.name.humanize)
+      expect(page).to have_content(project1.lightning_talk.name.humanize)
     end
   end
 
@@ -27,9 +27,9 @@ describe "When an admin tries to log in" do
       expect(current_path).to eq('/login')
       click_on "Sign in with GitHub"
 
-      expect(current_path).to eq(admin_demo_nights_path)
+      expect(current_path).to eq(admin_lightning_talks_path)
       within('.nav-wrapper') do
-        expect(page).to have_content("New Demo Night")
+        expect(page).to have_content("New Lightning Talk")
       end
     end
   end

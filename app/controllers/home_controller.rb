@@ -3,6 +3,6 @@ class HomeController < ApplicationController
     redirect_to root_redirect
   end
 
-  def no_demo_night
+  def no_lightning_talk
   end
 end

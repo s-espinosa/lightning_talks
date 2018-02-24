@@ -7,7 +7,7 @@ describe "When a visitor tries to log in" do
       expect(current_path).to eq('/login')
       click_on "Sign in with GitHub"
 
-      expect(current_path).to eq('/no-demo-night')
+      expect(current_path).to eq('/no-lightning-talk')
       expect(page).to have_content('Sorry')
       expect(User.last.name).to eq("First Last")
     end
@@ -15,7 +15,7 @@ describe "When a visitor tries to log in" do
 
   context "with a demo night accepting submissions" do
     it "they log in and see a form to submit" do
-      create(:demo_night)
+      create(:lightning_talk)
 
       visit '/'
       expect(current_path).to eq('/login')
@@ -32,7 +32,7 @@ describe "When a visitor tries to log in" do
 
   context "with a demo night accepting votes" do
     it "they log in and see a list of projects" do
-      create(:demo_night_with_projects, status: 'voting')
+      create(:lightning_talk_with_projects, status: 'voting')
 
       visit '/'
       expect(current_path).to eq('/login')

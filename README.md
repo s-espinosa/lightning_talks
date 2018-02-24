@@ -1,10 +1,10 @@
-# DEMO NIGHT!
+# LIGHTNING TALK!
 
 A basic voting application for competitions currently designed for the [Turing School of Software & Design](https://www.turing.io/) student demo night competition.
 
 This is a Ruby on Rails application using GitHub authentication. [Figaro](https://github.com/laserlemon/figaro) has been used to manage environment variables.
 
-In order to run this project in a dev/production environment you will need to [register two GitHub applications](https://github.com/settings/applications/new), fork the project on GitHub, clone your new repository (available at `https://github.com/YOUR_USERNAME_HERE/demonight`), `cd` into the project directory in your terminal, and enter the following from the command line.
+In order to run this project in a dev/production environment you will need to [register two GitHub applications](https://github.com/settings/applications/new), fork the project on GitHub, clone your new repository (available at `https://github.com/YOUR_USERNAME_HERE/lightningtalk`), `cd` into the project directory in your terminal, and enter the following from the command line.
 
 ```
 bundle

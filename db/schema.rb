@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170206213539) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "demo_nights", force: :cascade do |t|
+  create_table "lightning_talks", force: :cascade do |t|
     t.string  "name"
     t.integer "status",     default: 0
     t.date    "final_date"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20170206213539) do
     t.boolean  "final_confirmation"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "demo_night_id"
+    t.integer  "lightning_talk_id"
     t.integer  "user_id"
     t.text     "note"
-    t.index ["demo_night_id"], name: "index_projects_on_demo_night_id", using: :btree
+    t.index ["lightning_talk_id"], name: "index_projects_on_lightning_talk_id", using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170206213539) do
     t.index ["user_id"], name: "index_votes_on_user_id", using: :btree
   end
 
-  add_foreign_key "projects", "demo_nights"
+  add_foreign_key "projects", "lightning_talks"
   add_foreign_key "projects", "users"
   add_foreign_key "votes", "projects"
   add_foreign_key "votes", "users"
