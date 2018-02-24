@@ -14,9 +14,9 @@ describe "When a user visits a project vote page" do
     demo.projects[3..-1].each do |project|
       project.votes.create(user: user2,
                            project: project,
-                           representation: 3,
-                           challenge: 3,
-                           wow: 3)
+                           presentation: 3,
+                           content: 3,
+                           surprise: 3)
     end
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
@@ -61,7 +61,7 @@ describe "When a user visits a project vote page" do
       expect(page).to_not have_content(demo.projects[2].name)
       expect(page).to have_content(demo.projects[6].name)
     end
-    expect(Vote.last.wow).to eq(3)
+    expect(Vote.last.surprise).to eq(3)
     expect(Vote.last.user).to eq(user1)
   end
 end

@@ -33,13 +33,13 @@ RSpec.describe LightningTalk, type: :model do
       project3 = create(:project, lightning_talk: lightningtalk)
       user1 = User.first
       user2 = User.second
-      project1.votes.create(user: user1, representation: 1, challenge: 1, wow: 1)
-      project1.votes.create(user: user2, representation: 2, challenge: 2, wow: 2)
-      project3.votes.create(user: user1, representation: 5, challenge: 5, wow: 5)
-      project3.votes.create(user: user2, representation: 5, challenge: 5, wow: 5)
+      project1.votes.create(user: user1, presentation: 1, content: 1, surprise: 1)
+      project1.votes.create(user: user2, presentation: 2, content: 2, surprise: 2)
+      project3.votes.create(user: user1, presentation: 5, content: 5, surprise: 5)
+      project3.votes.create(user: user2, presentation: 5, content: 5, surprise: 5)
       projects = [project1, project2, project3]
-      lightningtalk = create(:lightning_talk) 
-      lightningtalk.projects << projects 
+      lightningtalk = create(:lightning_talk)
+      lightningtalk.projects << projects
       lightningtalk_projects = lightningtalk.sorted_projects
 
       expect(lightningtalk_projects.first.name).to eq(project3.name)

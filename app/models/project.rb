@@ -11,21 +11,21 @@ class Project < ApplicationRecord
     votes.count
   end
 
-  def average_representation
-    votes.average(:representation).round(3) if votes.count != 0
+  def average_presentation
+    votes.average(:presentation).round(3) if votes.count != 0
   end
 
-  def average_challenge
-    votes.average(:challenge).round(3) if votes.count != 0
+  def average_content
+    votes.average(:content).round(3) if votes.count != 0
   end
 
-  def average_wow
-    votes.average(:wow).round(3) if votes.count != 0
+  def average_surprise
+    votes.average(:surprise).round(3) if votes.count != 0
   end
 
   def average_total
     if votes.count != 0
-      ((votes.sum(:representation) + votes.sum(:challenge) + votes.sum(:wow)) / votes.count.to_f).round(3)
+      ((votes.sum(:presentation) + votes.sum(:content) + votes.sum(:surprise)) / votes.count.to_f).round(3)
     else
       0
     end
