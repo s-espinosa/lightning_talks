@@ -4,7 +4,7 @@ sudo: required
 addons:
   chrome: stable
 before_install:
-  - rails s -p 9292
+  - rails server
   - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
 cache:
   - bundler
