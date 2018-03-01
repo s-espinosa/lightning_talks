@@ -24,14 +24,14 @@ describe "When a visitor tries to log in" do
       expect(current_path).to eq(new_project_path)
       expect(User.last.name).to eq("First Last")
       within('nav') do
-        expect(page).to have_link('Current Projects')
-        expect(page).to have_link('New Project')
+        expect(page).to have_link('Current Talks')
+        expect(page).to have_link('New Talk')
       end
     end
   end
 
   context "with a lightning talk accepting votes" do
-    it "they log in and see a list of projects" do
+    it "they log in and see a list of talks" do
       create(:lightning_talk_with_projects, status: 'voting')
 
       visit '/'
@@ -45,7 +45,7 @@ describe "When a visitor tries to log in" do
         expect(page).to_not have_content('Edit')
       end
        within('nav') do
-        expect(page).to_not have_link('New Project')
+        expect(page).to_not have_link('New Talk')
       end
     end
   end

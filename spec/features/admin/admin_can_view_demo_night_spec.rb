@@ -13,7 +13,7 @@ describe "When an admin visits the admin lightning talk show path" do
 
     visit admin_lightning_talk_path(lightning_talk)
     within('.card-content.white-text') do
-      expect(page).to have_content("Number of Projects: 2")
+      expect(page).to have_content("Number of Talks: 2")
     end
     within('.projects > table > tbody') do
       within('tr:nth-child(1)') do

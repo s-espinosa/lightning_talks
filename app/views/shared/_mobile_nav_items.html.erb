@@ -3,19 +3,19 @@
   <% if !current_lightning_talk? %>
     <li><%= link_to "New Lightning Talk", new_admin_lightning_talk_path %></li>
   <% else %>
-    <li><%= link_to "Current Projects", admin_lightning_talk_path(LightningTalk.current) %></li>
+    <li><%= link_to "Current Talks", admin_lightning_talk_path(LightningTalk.current) %></li>
     <li><%= link_to "Live Scoreboard", admin_scoreboard_path %></li>
-    <li><%= link_to "Rate Projects", projects_path %></li>
+    <li><%= link_to "Rate Talks", projects_path %></li>
   <% end %>
-  <li><%= link_to "New Project", new_project_path %></li>
+  <li><%= link_to "New Talk", new_project_path %></li>
   <li><%= link_to "Log Out", logout_path %></li>
 <% end %>
 <% if current_user && !current_admin? %>
   <% if accepting_submissions? %>
-    <li><%= link_to "New Project", new_project_path %></li>
+    <li><%= link_to "New Talk", new_project_path %></li>
   <% end %>
   <% if current_lightning_talk? %>
-    <li><%= link_to "Current Projects", projects_path %></li>
+    <li><%= link_to "Current Talks", projects_path %></li>
   <% end %>
   <li><%= link_to "Log Out", logout_path %></li>
 <% end %>

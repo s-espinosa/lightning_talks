@@ -4,7 +4,7 @@
       <div class="card grey darken-1">
         <div class="card-content white-text">
           <span class="card-title"><%= @project.name %></span>
-          <p>Group Members: <%= @project.group_members %></p>
+          <p>Student Name: <%= @project.group_members %></p>
           <p>
             Able to present at finals:
             <% if @project.final_confirmation %>
@@ -16,7 +16,7 @@
         </div>
         <div class="card-action">
           <p><%= link_to "Edit #{@project.name}", edit_admin_project_path(@project), class: 'btn turing-btn waves-effect waves-light' %></p>
-          <p><%= link_to "Other Projects from this Lightning Talk", admin_lightning_talk_path(@project.lightning_talk), class: 'btn turing-btn waves-effect waves-light' %></p>
+          <p><%= link_to "Other talks from this Lightning Talk", admin_lightning_talk_path(@project.lightning_talk), class: 'btn turing-btn waves-effect waves-light' %></p>
         </div>
       </div>
     </div>

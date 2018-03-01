@@ -1,18 +1,18 @@
-<h1 class="page-title">THE PROJECTS</h1>
+<h1 class="page-title">THE TALKS</h1>
 <hr>
 <div class="unvoted">
   <h2 class="page-title">Not Yet Rated</h2>
   <ul class="collection">
     <% @projects.unvoted_by_user(current_user.id).each do |project| %>
       <li class="collection-item avatar">
-        <span class="title"><b>Project Name:</b> <%= project.name%></span>
-        <p><b>Group:</b> <%= project.group_members %></p>
+        <span class="title"><b>Topic:</b> <%= project.name%></span>
+        <p><b>Student:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
         <% if voting? %>
           <%= link_to "Rate", new_project_vote_path(project), class: "waves-effect waves-light btn turing-btn" %>
         <% end %>
         <% if owner_and_accepting(project.id) %>
-          <%= link_to "Edit Project", edit_project_path(project), class: "waves-effect waves-light btn turing-btn" %>
+          <%= link_to "Edit Talk", edit_project_path(project), class: "waves-effect waves-light btn turing-btn" %>
         <% end %>
       </li>
     <% end %>
@@ -24,8 +24,8 @@
   <ul class="collection">
     <% @projects.voted_by_user(current_user.id).each do |project| %>
       <li class="collection-item avatar">
-        <span class="title"><b>Project Name:</b> <%= project.name%></span>
-        <p><b>Group:</b> <%= project.group_members %></p>
+        <span class="title"><b>Topic:</b> <%= project.name%></span>
+        <p><b>Student:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
         <% if voting? %>
           <%= link_to "Edit Rating", edit_project_vote_path(id: project.votes.where(user_id: current_user.id).first.id, project_id: project.id), class: "waves-effect waves-light btn turing-btn" %>
@@ -35,18 +35,3 @@
   </ul>
 </div>
 
-<div class="ineligible">
-  <h2 class="page-title">Internal Lightning Talk Only</h2>
-  <ul class="collection">
-    <% @projects.ineligible.each do |project| %>
-      <li class="collection-item avatar">
-        <span class="title"><b>Project Name:</b> <%= project.name%></span>
-        <p><b>Group:</b> <%= project.group_members %></p>
-        <p><b>Mod:</b> <%= project.project_type %></p>
-      <% if owner_and_accepting(project.id) %>
-        <%= link_to "Edit Project", edit_project_path(project), class: "waves-effect waves-light btn turing-btn" %>
-      <% end %>
-      </li>
-    <% end %>
-  </ul>
-</div>

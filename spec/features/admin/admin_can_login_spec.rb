@@ -12,8 +12,8 @@ describe "When an admin tries to log in" do
       expect(current_path).to eq(admin_lightning_talks_path)
       within('.nav-wrapper') do
         expect(page).to have_content("Lightning Talks")
-        expect(page).to have_content("Current Projects")
-        expect(page).to have_content("New Project")
+        expect(page).to have_content("Current Talks")
+        expect(page).to have_content("New Talk")
       end
 
       expect(page).to have_content(project1.lightning_talk.name.humanize)

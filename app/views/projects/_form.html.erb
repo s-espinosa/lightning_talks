@@ -1,11 +1,11 @@
 <%= form_for @project do |f| %>
 <div class="input-field col s12">
   <%= f.text_field :name, class: "validate" %>
-  <%= f.label "Project Name" %>
+  <%= f.label "Topic" %>
 </div>
 <div class="input-field col s12">
   <%= f.text_field :group_members, class: "validate" %>
-  <%= f.label :group_members %>
+  <%= f.label "Student Name" %>
 </div>
 <div class="input-field col s12">
   <%= f.select(:project_type, @modules) %>
@@ -18,7 +18,6 @@
 <div class="input-field col s12 checkbox">
   <%= f.check_box :final_confirmation, {}, "true", "false" %>
   <%= f.label :final_confirmation, "Are you able to present at the Lightning Talk Finals on #{@project.lightning_talk.final_date}?" %>
-  <p>Note: only Mod 3 and Mod 4 projects will be allowed to present at the Lightning Talk Finals.</p>
 </div>
 <div class="input-field col s12">
   <%= f.submit "Submit", class: "btn turing-btn" %>

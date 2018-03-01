@@ -14,6 +14,6 @@ describe 'When an admin visits the admin lightning talk show path' do
 
     expect(page).not_to have_content(project1.name)
     expect(page).to have_content("New Name")
-    expect(page).to have_link('Other Projects from this Lightning Talk', href: admin_lightning_talk_path(lightning_talk))
+    expect(page).to have_link('Other talks from this Lightning Talk', href: admin_lightning_talk_path(lightning_talk))
   end
 end

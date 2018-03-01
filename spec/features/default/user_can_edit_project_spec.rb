@@ -11,7 +11,7 @@ describe 'A user edits a project' do
 
   it 'lets a user edit a project within a lightning talk that is accepting submissions' do
     visit projects_path
-    click_link('Edit Project')
+    click_link('Edit Talk')
     fill_in "project[name]", with: "Mark Miranda Pushes Code"
     click_on "Submit"
 
@@ -19,8 +19,8 @@ describe 'A user edits a project' do
     expect(page).to have_content("Mark Miranda Pushes Code")
     expect(page).to_not have_content(@project.name)
     within('nav') do
-      expect(page).to have_link("New Project")
-      expect(page).to have_link("Current Projects")
+      expect(page).to have_link("New Talk")
+      expect(page).to have_link("Current Talks")
     end
     within('.unvoted') do
       expect(page).to_not have_link("Vote")
@@ -29,7 +29,7 @@ describe 'A user edits a project' do
 
   it 'edit project - sad path', js: true do
     visit projects_path
-    click_link('Edit Project')
+    click_link('Edit Talk')
     fill_in "project[name]", with: ""
     click_on "Submit"
 
@@ -39,6 +39,6 @@ describe 'A user edits a project' do
   it 'does not let a user edit a project if lightning talk is voting or closed' do
     @lightningtalk.update(status: "voting")
     visit projects_path
-    expect(page).to_not have_link("Edit Project")
+    expect(page).to_not have_link("Edit Talk")
   end
 end
