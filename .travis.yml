@@ -6,7 +6,6 @@ addons:
 before_install:
   - rails s -p 9292
   - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
-  ⋮
 cache:
   - bundler
 before_script:
