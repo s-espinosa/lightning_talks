@@ -4,7 +4,7 @@
 
 <div class="projects">
   <% if @lightning_talk.projects.count == 0 %>
-    No Projects Yet!
+    No Talks Yet!
   <% else %>
     <%= render partial: 'vote_talley', locals: {projects: @lightning_talk.sorted_projects} %>
   <% end %>

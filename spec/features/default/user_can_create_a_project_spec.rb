@@ -18,12 +18,12 @@ describe 'When a user visits the new project path', js: true do
     new_project      = Project.last
     existing_project = Project.first
     expect(current_path).to eq(projects_path)
-    expect(page).to have_content("Project successfully submitted!")
+    expect(page).to have_content("Talk successfully submitted!")
     within('.unvoted') do
       expect(page).to have_content("Witty Name")
       expect(page).to have_content("Sharon Jones")
-      expect(page).to have_link("Edit Project", href: edit_project_path(new_project))
-      expect(page).to_not have_link("Edit Project", href: edit_project_path(existing_project))
+      expect(page).to have_link("Edit Talk", href: edit_project_path(new_project))
+      expect(page).to_not have_link("Edit Talk", href: edit_project_path(existing_project))
       expect(page).to_not have_link("Vote")
     end
   end

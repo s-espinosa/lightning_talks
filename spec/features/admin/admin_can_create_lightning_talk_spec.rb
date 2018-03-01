@@ -20,7 +20,7 @@ describe "when an admin logs in" do
 
     expect(current_path).to eq("/admin/lightning_talks/#{LightningTalk.last.id}")
     within('.projects') do
-      expect(page).to have_content("No Projects Yet!")
+      expect(page).to have_content("No Talks Yet!")
     end
 
     within('.admin-tools') do

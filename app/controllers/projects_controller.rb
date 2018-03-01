@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   def create
     @project = LightningTalk.current.projects.new(project_params)
     if @project.save
-      flash[:success] = "Project successfully submitted!"
+      flash[:success] = "Talk successfully submitted!"
       redirect_to projects_path
     else
       flash[:error] = "There was an issue creating this project"
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4", "Posse"]
+    @modules = ["BE Mod 1", "BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 1", "FE Mod 2", "FE Mod 3", "FE Mod 4"]
   end
 
   def update

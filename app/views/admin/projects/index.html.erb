@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1 class="page-title">Current Projects</h1>
+<h1 class="page-title">Current Talks</h1>
 
 <% if @projects.current_projects == [] %>
   <p>No current projects.</p>
@@ -9,7 +9,7 @@
   <% @projects.current_projects.each do |project| %>
   <li class="collection-item avatar">
     <span class="title"><b>Project Name:</b> <%= link_to project.name, edit_admin_project_path(project) %></span>
-    <p><b>Group:</b> <%= project.group_members %></p>
+    <p><b>Student:</b> <%= project.group_members %></p>
     <p><b>Mod:</b> <%= project.project_type %></p>
     <p><b>Finals:</b>
         <% if @project.final_confirmation %>

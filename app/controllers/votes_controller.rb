@@ -3,7 +3,6 @@ class VotesController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
-    check_eligibility(@project)
     @vote    = Vote.new
   end
 
@@ -36,10 +35,6 @@ class VotesController < ApplicationController
 
   def vote_params
     params.require(:vote).permit(:presentation, :content, :surprise)
-  end
-
-  def check_eligibility(project)
-    redirect_to clever_path if Project.ineligible.include?(project)
   end
 
   def check_voting
