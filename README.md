@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/s-espinosa/lightning_talks.svg?branch=master)](https://travis-ci.org/s-espinosa/lightning_talks)
+
 # LIGHTNING TALK!
 
 A basic voting application for competitions currently designed for the [Turing School of Software & Design](https://www.turing.io/) student lightning talk competition.
