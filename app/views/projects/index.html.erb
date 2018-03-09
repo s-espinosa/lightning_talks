@@ -34,7 +34,7 @@
   <h2 class="page-title">Already Rated</h2>
   <ul class="collection talks">
     <% @projects.voted_by_user(current_user.id).each do |project| %>
-      <li class="collection-item avatar">
+      <li class="collection-item avatar" data-cohort-name="<%= project.project_type %>">
         <span class="title"><b>Topic:</b> <%= project.name%></span>
         <p><b>Student:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
