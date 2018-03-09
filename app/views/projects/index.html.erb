@@ -1,10 +1,21 @@
 <h1 class="page-title">THE TALKS</h1>
 <hr>
+
+<div class="col s12">
+  <p>Please select a cohort:</p>
+</div>
+<%= form_for(:cohort, html: {class: "cohortSelector"}) do |f| %>
+  <div class="input-field col s12">
+    <%= f.select(:name, ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4"], selected: 3) %>
+  </div>
+<% end %>
+
+
 <div class="unvoted">
   <h2 class="page-title">Not Yet Rated</h2>
-  <ul class="collection">
+  <ul class="collection talks">
     <% @projects.unvoted_by_user(current_user.id).each do |project| %>
-      <li class="collection-item avatar">
+      <li class="collection-item avatar" data-cohort-name="<%= project.project_type %>">
         <span class="title"><b>Topic:</b> <%= project.name%></span>
         <p><b>Student:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
@@ -21,7 +32,7 @@
 
 <div class="voted">
   <h2 class="page-title">Already Rated</h2>
-  <ul class="collection">
+  <ul class="collection talks">
     <% @projects.voted_by_user(current_user.id).each do |project| %>
       <li class="collection-item avatar">
         <span class="title"><b>Topic:</b> <%= project.name%></span>
@@ -34,4 +45,3 @@
     <% end %>
   </ul>
 </div>
-
