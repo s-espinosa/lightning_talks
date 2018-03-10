@@ -3,7 +3,7 @@ $(document).ready(function() {
     var value = $(this).val();
     $("ul.talks").find("li").hide()
     $.each($("ul.talks").find("li"),function(){
-      if($(this).data('cohort-name') === value)
+      if($(this).data('cohort-name') === value || value === "All Talks")
         $(this).show();
     });
   });
