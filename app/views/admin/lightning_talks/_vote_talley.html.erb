@@ -1,3 +1,12 @@
+<div class="col s12">
+  <p>Please select a cohort:</p>
+</div>
+<%= form_for(:cohort, html: {class: "cohortSelector"}) do |f| %>
+  <div class="input-field col s12">
+    <%= f.select(:name, ["All Talks", "BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4"], selected: 3) %>
+  </div>
+<% end %>
+
 <table class="responsive-table centered vote-talley">
   <thead>
     <tr>
@@ -13,29 +22,29 @@
       <th>Actions</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="talks">
     <% projects.each do |project| %>
-    <tr>
-      <td class="small"><%= project.name %></td>
-      <td class="small"><%= project.group_members %></td>
-      <td class="small"><%= project.project_type %></td>
-      <td class="reg"><%= project.note %></td>
-      <td class="small"><%= project.average_presentation %></td>
-      <td class="small"><%= project.average_content %></td>
-      <td class="small"><%= project.average_surprise %></td>
-      <td class="small"><%= project.average_total %></td>
-      <td class="small">
-        <% if project.final_confirmation %>
-          <i class="material-icons finals-yes">done</i>
-        <% else %>
-          <i class="material-icons finals-no">not_interested</i>
-        <% end %>
-      </td>
-      <td class="reg">
-        <%= link_to "Edit", edit_admin_project_path(project), class: 'btn turing-btn' %>
-        <%= button_to "Delete", admin_project_path(:id => project.id), :method => :delete, data: { confirm: "Are you sure?" },  class: 'btn turing-btn' %>
-      </td>
-    </tr>
+      <tr data-cohort-name="<%= project.project_type %>">
+        <td class="small"><%= project.name %></td>
+        <td class="small"><%= project.group_members %></td>
+        <td class="small"><%= project.project_type %></td>
+        <td class="reg"><%= project.note %></td>
+        <td class="small"><%= project.average_presentation %></td>
+        <td class="small"><%= project.average_content %></td>
+        <td class="small"><%= project.average_surprise %></td>
+        <td class="small"><%= project.average_total %></td>
+        <td class="small">
+          <% if project.final_confirmation %>
+            <i class="material-icons finals-yes">done</i>
+          <% else %>
+            <i class="material-icons finals-no">not_interested</i>
+          <% end %>
+        </td>
+        <td class="reg">
+          <%= link_to "Edit", edit_admin_project_path(project), class: 'btn turing-btn' %>
+          <%= button_to "Delete", admin_project_path(:id => project.id), :method => :delete, data: { confirm: "Are you sure?" },  class: 'btn turing-btn' %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
