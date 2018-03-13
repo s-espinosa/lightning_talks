@@ -7,6 +7,16 @@
   </div>
 <% end %>
 
+<div class="col s12">
+  <p>Please select a week:</p>
+</div>
+
+<%= form_for(:week, html: {class: "weekSelector"}) do |f| %>
+  <div class="input-field col s12">
+    <%= f.select(:name, ["All Weeks", "Week 2", "Week 3", "Week 4"], selected: 3) %>
+  </div>
+<% end %>
+
 <table class="responsive-table centered vote-talley">
   <thead>
     <tr>
@@ -24,7 +34,7 @@
   </thead>
   <tbody class="talks">
     <% projects.each do |project| %>
-      <tr data-cohort-name="<%= project.project_type %>">
+      <tr data-cohort-name="<%= project.project_type %>" data-week="<%= project.week %>">
         <td class="small"><%= project.name %></td>
         <td class="small"><%= project.group_members %></td>
         <td class="small"><%= project.project_type %></td>

@@ -10,15 +10,26 @@
   </div>
 <% end %>
 
+<div class="col s12">
+  <p>Please select a week:</p>
+</div>
+<%= form_for(:week, html: {class: "weekSelector"}) do |f| %>
+  <div class="input-field col s12">
+    <%= f.select(:name, ["All Weeks", "Week 2", "Week 3", "Week 4"], selected: 3) %>
+  </div>
+<% end %>
+
+
 
 <div class="unvoted">
   <h2 class="page-title">Not Yet Rated</h2>
   <ul class="collection talks">
     <% @projects.unvoted_by_user(current_user.id).each do |project| %>
-      <li class="collection-item avatar" data-cohort-name="<%= project.project_type %>">
+      <li class="collection-item avatar" data-cohort-name="<%= project.project_type %>" data-week="<%= project.week %>">
         <span class="title"><b>Topic:</b> <%= project.name%></span>
         <p><b>Student:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
+        <p><b>Week:</b> <%= project.week %></p>
         <% if voting? %>
           <%= link_to "Rate", new_project_vote_path(project), class: "waves-effect waves-light btn turing-btn" %>
         <% end %>
@@ -34,10 +45,11 @@
   <h2 class="page-title">Already Rated</h2>
   <ul class="collection talks">
     <% @projects.voted_by_user(current_user.id).each do |project| %>
-      <li class="collection-item avatar" data-cohort-name="<%= project.project_type %>">
+      <li class="collection-item avatar" data-cohort-name="<%= project.project_type %>" data-week="<%= project.week %>">
         <span class="title"><b>Topic:</b> <%= project.name%></span>
         <p><b>Student:</b> <%= project.group_members %></p>
         <p><b>Mod:</b> <%= project.project_type %></p>
+        <p><b>Week:</b> <%= project.week %></p>
         <% if voting? %>
           <%= link_to "Edit Rating", edit_project_vote_path(id: project.votes.where(user_id: current_user.id).first.id, project_id: project.id), class: "waves-effect waves-light btn turing-btn" %>
         <% end %>

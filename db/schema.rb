@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224184706) do
+ActiveRecord::Schema.define(version: 20180313193253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180224184706) do
     t.integer  "lightning_talk_id"
     t.integer  "user_id"
     t.text     "note"
+    t.string   "week"
     t.index ["lightning_talk_id"], name: "index_projects_on_lightning_talk_id", using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
