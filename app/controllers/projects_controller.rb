@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
     if LightningTalk.current
       @project = LightningTalk.current.projects.new
       @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4", "Posse"]
+      @weeks   = ["Week 2", "Week 3", "Week 4"]
     else
       flash[:error] = "There is no active lightning talk yet. BRB."
       redirect_to root_path
@@ -32,6 +33,7 @@ class ProjectsController < ApplicationController
   def edit
     @project = Project.find(params[:id])
     @modules = ["BE Mod 1", "BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 1", "FE Mod 2", "FE Mod 3", "FE Mod 4"]
+    @weeks   = ["Week 2", "Week 3", "Week 4"]
   end
 
   def update
@@ -47,6 +49,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation, :lightning_talk_id, :note).merge(user_id: current_user.id)
+    params.require(:project).permit(:group_members, :name, :project_type, :week, :final_confirmation, :lightning_talk_id, :note).merge(user_id: current_user.id)
   end
 end

@@ -10,8 +10,10 @@ describe 'When a user visits the new project path', js: true do
     fill_in "project[group_members]", with: "Sharon Jones"
     fill_in "project[name]", with: "Witty Name"
     fill_in "project[note]", with: "Please put me last"
-    find('div.select-wrapper input').click
+    find('div.select-wrapper.modules input').click
     find('div.select-wrapper li', text: 'BE Mod 3').click
+    find('div.select-wrapper.weeks input').click
+    find('div.select-wrapper li', text: 'Week 3').click
     find('label', text: "Are you able to present at the Lightning Talk Finals on #{LightningTalk.last.final_date}?").click
     click_on "Submit"
 
@@ -22,6 +24,7 @@ describe 'When a user visits the new project path', js: true do
     within('.unvoted') do
       expect(page).to have_content("Witty Name")
       expect(page).to have_content("Sharon Jones")
+      expect(page).to have_content("Week 3")
       expect(page).to have_link("Edit Talk", href: edit_project_path(new_project))
       expect(page).to_not have_link("Edit Talk", href: edit_project_path(existing_project))
       expect(page).to_not have_link("Vote")
