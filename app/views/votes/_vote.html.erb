@@ -18,6 +18,12 @@
   <div class="input-field col s12">
     <%= f.select(:surprise, [1, 2, 3, 4, 5], selected: 3) %>
   </div>
+  <div class="col s12">
+    <p>How could this lightning talk be improved?</p>
+  </div>
+  <div class="input-field col s12">
+    <%= f.text_area :feedback %>
+  </div>
   <div class="input-field col s12">
     <%= f.submit "Submit", class: "btn turing-btn" %>
   </div>

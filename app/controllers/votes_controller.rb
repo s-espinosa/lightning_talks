@@ -34,7 +34,7 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:presentation, :content, :surprise)
+    params.require(:vote).permit(:presentation, :content, :surprise, :feedback)
   end
 
   def check_voting
