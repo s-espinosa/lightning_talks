@@ -7,6 +7,10 @@ class Project < ApplicationRecord
 
   validates_presence_of :name
 
+  def has_votes
+    votes.count != 0
+  end
+
   def number_of_votes
     votes.count
   end
