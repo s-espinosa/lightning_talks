@@ -6,7 +6,8 @@ class Admin::ProjectsController < Admin::BaseController
 
   def edit
     @project = Project.find(params[:id])
-    @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4", "Posse"]
+    @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4"]
+    @weeks   = ["Week 2", "Week 3", "Week 4"]
   end
 
   def update
@@ -30,6 +31,6 @@ class Admin::ProjectsController < Admin::BaseController
 
   private
   def project_params
-    params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation)
+    params.require(:project).permit(:group_members, :name, :project_type, :final_confirmation, :week, :note)
   end
 end
