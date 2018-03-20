@@ -1,15 +1,23 @@
 <%= form_for [:admin, @project] do |f| %>
 <div class="input-field col s12">
   <%= f.text_field :name, class: "validate" %>
-  <%= f.label :name %>
+  <%= f.label "Topic" %>
 </div>
 <div class="input-field col s12">
   <%= f.text_field :group_members, class: "validate" %>
-  <%= f.label :group_members %>
+  <%= f.label "Student Name" %>
 </div>
 <div class="input-field col s12">
-  <%= f.select(:project_type, @modules) %>
+  <%= f.select(:project_type, @modules, {include_blank: "Please select a module"}, {class: "modules"}) %>
   <%= f.label :project_type %>
+</div>
+<div class="input-field col s12">
+  <%= f.select(:week, @weeks, {include_blank: "Please select a week"}, {class: "weeks"}) %>
+  <%= f.label "Which week are you scheduled for your talk?" %>
+</div>
+<div class="input-field col s12">
+  <%= f.text_field :note %>
+  <%= f.label :note %>
 </div>
 <div class="input-field col s12 checkbox">
   <%= f.check_box :final_confirmation, {}, "true", "false" %>

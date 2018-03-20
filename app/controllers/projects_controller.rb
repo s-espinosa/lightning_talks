@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @modules = ["BE Mod 1", "BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 1", "FE Mod 2", "FE Mod 3", "FE Mod 4"]
+    @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4"]
     @weeks   = ["Week 2", "Week 3", "Week 4"]
   end
 
