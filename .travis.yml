@@ -19,6 +19,7 @@ before_install:
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
 before_script:
+- chromedriver-update 73.0.3683.68
 - bundle exec rake db:create --all
 - bundle exec rake db:migrate
 script:
