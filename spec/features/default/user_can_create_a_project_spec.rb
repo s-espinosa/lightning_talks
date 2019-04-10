@@ -14,7 +14,6 @@ describe 'When a user visits the new project path', js: true do
     find('div.select-wrapper li', text: 'BE Mod 3').click
     find('div.select-wrapper.weeks input').click
     find('div.select-wrapper li', text: 'Week 3').click
-    find('label', text: "Are you able to present at the Lightning Talk Finals on #{LightningTalk.last.final_date}?").click
     click_on "Submit"
 
     new_project      = Project.last

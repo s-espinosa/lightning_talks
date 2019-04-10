@@ -8,8 +8,8 @@ describe "When a user visits a project vote page" do
     demo.projects << create(:project, project_type: "FE Mod 2")
     demo.projects << create(:project, project_type: "BE Mod 3")
     demo.projects << create(:project, project_type: "FE Mod 3")
-    demo.projects << create(:project, project_type: "BE Mod 4")
-    demo.projects << create(:project, project_type: "FE Mod 4")
+    demo.projects << create(:project, project_type: "BE Mod 4 Gear Up Topic")
+    demo.projects << create(:project, project_type: "FE Mod 4 Gear Up Topic")
     demo.projects[3..-1].each do |project|
       project.votes.create(user: user2,
                            project: project,
@@ -57,7 +57,7 @@ describe "When a user visits a project vote page" do
     end
 
     all('div.select-wrapper')[0].click
-    find('div.select-wrapper li', text: 'BE Mod 4').click
+    find('div.select-wrapper li', text: 'BE Mod 4 Gear Up Topic').click
 
     within(".unvoted") do
       expect(page).to_not have_content(demo.projects[0].name)

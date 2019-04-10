@@ -21,6 +21,7 @@ FactoryGirl.define do
     end
     project_type "BE Mod 3"
     final_confirmation true
+    note "Note"
     lightning_talk
     owner
   end

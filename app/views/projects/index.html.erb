@@ -6,7 +6,7 @@
 </div>
 <%= form_for(:cohort, html: {class: "cohortSelector"}) do |f| %>
   <div class="input-field col s12">
-    <%= f.select(:name, ["All Talks", "BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4"], selected: 3) %>
+    <%= f.select(:name, ["All Talks", "BE Mod 2", "BE Mod 3", "BE Mod 4 Gear Up Topic", "FE Mod 2", "FE Mod 3", "FE Mod 4 Gear Up Topic"], selected: 3) %>
   </div>
 <% end %>
 
@@ -15,7 +15,7 @@
 </div>
 <%= form_for(:week, html: {class: "weekSelector"}) do |f| %>
   <div class="input-field col s12">
-    <%= f.select(:name, ["All Weeks", "Week 2", "Week 3", "Week 4"], selected: 3) %>
+    <%= f.select(:name, ["All Weeks", "Week 2", "Week 3", "Week 4", "Week 5"], selected: 3) %>
   </div>
 <% end %>
 
