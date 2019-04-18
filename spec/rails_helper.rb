@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'selenium/webdriver'
+require 'webdrivers'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -48,6 +49,7 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+Webdrivers::Chromedriver.version = '2.46'
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
