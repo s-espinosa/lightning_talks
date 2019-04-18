@@ -5,7 +5,7 @@ addons:
     sources:
       - google-chrome
     packages:
-      - google-chrome-beta
+      - google-chrome-beta --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 language: ruby
 rvm: 2.3.4
 cache:
