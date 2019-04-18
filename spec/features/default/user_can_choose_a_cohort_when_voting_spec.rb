@@ -8,8 +8,8 @@ describe "When a user visits a project vote page" do
     demo.projects << create(:project, project_type: "FE Mod 2")
     demo.projects << create(:project, project_type: "BE Mod 3")
     demo.projects << create(:project, project_type: "FE Mod 3")
-    demo.projects << create(:project, project_type: "BE Mod 4")
-    demo.projects << create(:project, project_type: "FE Mod 4")
+    demo.projects << create(:project, project_type: "BE Mod 4 Gear Up Topic")
+    demo.projects << create(:project, project_type: "FE Mod 4 Gear Up Topic")
     demo.projects[3..-1].each do |project|
       project.votes.create(user: user2,
                            project: project,
@@ -34,12 +34,9 @@ describe "When a user visits a project vote page" do
       click_link("Rate", href: new_project_vote_path(demo.projects[0]))
     end
 
-    all('div.select-wrapper')[0].click
-    find('div.select-wrapper li', text: '3').click
-    all('div.select-wrapper')[1].click
-    find('div.select-wrapper li', text: '3').click
-    all('div.select-wrapper')[2].click
-    find('div.select-wrapper li', text: '3').click
+    select "3", from: "vote[presentation]", visible: false
+    select "3", from: "vote[content]", visible: false
+    select "3", from: "vote[surprise]", visible: false
     click_on "Submit"
 
     expect(current_path).to eq(lightning_talk_projects_path(demo))
@@ -57,7 +54,7 @@ describe "When a user visits a project vote page" do
     end
 
     all('div.select-wrapper')[0].click
-    find('div.select-wrapper li', text: 'BE Mod 4').click
+    find('div.select-wrapper li', text: 'BE Mod 4 Gear Up Topic').click
 
     within(".unvoted") do
       expect(page).to_not have_content(demo.projects[0].name)

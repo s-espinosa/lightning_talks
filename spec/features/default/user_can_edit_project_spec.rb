@@ -33,7 +33,7 @@ describe 'A user edits a project' do
     fill_in "project[name]", with: ""
     click_on "Submit"
 
-    expect(page).to have_content("Something went wrong!")
+    expect(page).to have_content("Name can't be blank")
   end
 
   it 'does not let a user edit a project if lightning talk is voting or closed' do

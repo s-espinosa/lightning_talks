@@ -6,8 +6,8 @@ class Admin::ProjectsController < Admin::BaseController
 
   def edit
     @project = Project.find(params[:id])
-    @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4", "FE Mod 2", "FE Mod 3", "FE Mod 4"]
-    @weeks   = ["Week 2", "Week 3", "Week 4"]
+    @modules = ["BE Mod 2", "BE Mod 3", "BE Mod 4 Gear Up Topic", "FE Mod 2", "FE Mod 3", "FE Mod 4 Gear Up Topic"]
+    @weeks   = ["Week 2", "Week 3", "Week 4", "Week 5"]
   end
 
   def update
@@ -15,7 +15,7 @@ class Admin::ProjectsController < Admin::BaseController
     if project.update(project_params)
       redirect_to admin_project_path(project)
     else
-      flash[:danger] = "Something went wrong!"
+      flash[:danger] = project.errors.full_messages.to_sentence
       redirect_to admin_edit_project_path(project)
     end
   end

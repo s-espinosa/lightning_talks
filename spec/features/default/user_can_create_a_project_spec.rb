@@ -9,12 +9,11 @@ describe 'When a user visits the new project path', js: true do
     visit new_project_path
     fill_in "project[group_members]", with: "Sharon Jones"
     fill_in "project[name]", with: "Witty Name"
-    fill_in "project[note]", with: "Please put me last"
     find('div.select-wrapper.modules input').click
-    find('div.select-wrapper li', text: 'BE Mod 3').click
+    find('div.select-wrapper.modules li', text: 'BE Mod 3').click
+    fill_in "project[note]", with: "Please put me last"
     find('div.select-wrapper.weeks input').click
-    find('div.select-wrapper li', text: 'Week 3').click
-    find('label', text: "Are you able to present at the Lightning Talk Finals on #{LightningTalk.last.final_date}?").click
+    find('div.select-wrapper.weeks li', text: 'Week 3').click
     click_on "Submit"
 
     new_project      = Project.last

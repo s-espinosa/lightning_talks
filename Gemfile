@@ -23,7 +23,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'table_print'
   gem 'awesome_print'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
 
 group :test do
