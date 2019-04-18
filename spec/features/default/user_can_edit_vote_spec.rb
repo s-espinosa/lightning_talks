@@ -17,12 +17,9 @@ describe "When a user visits the project index" do
       click_link("Edit Rating")
     end
 
-    all('div.select-wrapper')[0].click
-    find('div.select-wrapper li', text: '3').click
-    all('div.select-wrapper')[1].click
-    find('div.select-wrapper li', text: '3').click
-    all('div.select-wrapper')[2].click
-    find('div.select-wrapper li', text: '3').click
+    select "3", from: "vote[presentation]", visible: false
+    select "3", from: "vote[content]", visible: false
+    select "3", from: "vote[surprise]", visible: false
     click_on "Submit"
 
     expect(current_path).to eq(lightning_talk_projects_path(@lightning_talk))

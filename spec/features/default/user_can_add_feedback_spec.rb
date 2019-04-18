@@ -30,12 +30,9 @@ describe "When a user visits a project vote page" do
       click_link("Rate", href: new_project_vote_path(demo.projects[5]))
     end
 
-    all('div.select-wrapper')[0].click
-    find('div.select-wrapper li', text: '3').click
-    all('div.select-wrapper')[1].click
-    find('div.select-wrapper li', text: '3').click
-    all('div.select-wrapper')[2].click
-    find('div.select-wrapper li', text: '3').click
+    select "3", from: "vote[presentation]", visible: false
+    select "3", from: "vote[content]", visible: false
+    select "3", from: "vote[surprise]", visible: false
     fill_in('vote[feedback]', with: "Great shirt!")
     click_on "Submit"
 
