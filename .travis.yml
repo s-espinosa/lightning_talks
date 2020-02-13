@@ -1,9 +1,10 @@
 sudo: required
 dist: trusty
+env:
+  global:
+    - MOZ_HEADLESS=1
 addons:
-  chrome: stable
-before_install:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  firefox: latest
 language: ruby
 rvm: 2.3.4
 cache:

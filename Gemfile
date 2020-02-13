@@ -9,7 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
-gem "omniauth-github", '1.1.1'
+gem "omniauth-github"
 gem 'figaro'
 gem 'materialize-sass'
 gem 'redis'
